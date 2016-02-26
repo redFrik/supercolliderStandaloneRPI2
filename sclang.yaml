@@ -1,0 +1,3 @@
+includePaths:
+    - ./share/system/SCClassLibrary
+postInlineWarnings: false
