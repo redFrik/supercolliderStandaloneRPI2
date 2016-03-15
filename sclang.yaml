@@ -2,3 +2,4 @@ includePaths:
     - ./share/system/SCClassLibrary
     - ./share/user/Extensions
 postInlineWarnings: false
+

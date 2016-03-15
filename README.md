@@ -1,9 +1,9 @@
 # supercolliderStandaloneRPI2
-standalone for raspberry pi 2 & 3 raspbian jessie including the full scide.
+standalone for raspberry pi 2 raspbian jessie including the full scide.
 
-this is supercollider version 3.7 <http://github.com/supercollider/supercollider> compiled for arm7.
+this is supercollider (master branch commit 617f980) <http://github.com/supercollider/supercollider> compiled for armv7l.
 
-it was built using this guide <http://supercollider.github.io/development/building-raspberrypi.html> under 2016-02-09-raspbian-jessie.img.
+it was built using this guide <http://supercollider.github.io/development/building-raspberrypi.html> under 2016-02-26-raspbian-jessie.img.
 
 and the standalone structure is based on Miguel Negrão's <https://github.com/miguel-negrao/scStandalone> template.
 
