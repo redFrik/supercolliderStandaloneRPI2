@@ -12,8 +12,13 @@ installation
 
 open terminal on the rpi and type...
 
-* `git clone git://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `sudo apt-get install libqt5webkit5 libqt5sensors5 libqt5positioning5 libcwiid-dev libfftw3-dev`
+* `git clone git://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
+* `mkdir -p ~/.config/SuperCollider`
+* `cp supercolliderStandaloneRPI2/sc_ide_conf_temp.yaml ~/.config/SuperCollider/sc_ide_conf.yaml`
+
+note: the last command will overwrite/create the global scide preference file from our template. unfortunately supercollider ide can not use a separate local config file, but hopefully this will change in the future.
+note: if you cloned this repro somewhere else than in your home directory, edit the paths to match in `nano ~/.config/SuperCollider/sc_ide_conf.yaml`
 
 scide
 --
@@ -22,7 +27,7 @@ to run the full ide first open a terminal window and type...
 
 * `qjackctl`
 
-start jack with the correct soundcard (under devices)
+and start jack with the correct soundcard (under setup/interfaces)
 
 then open another terminal window and type...
 
