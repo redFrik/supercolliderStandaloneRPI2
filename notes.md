@@ -1,58 +1,23 @@
 notes
 --
 
-on how to build these binaries and set up this standalone repository...
+notes on how to build these binaries and set up a standalone repository...
 
-* build scide on a rpi2 following the scide section here <http://supercollider.github.io/development/building-raspberrypi.html>
+first build sc master on a rpi2 following the instructions in the scide section here <http://supercollider.github.io/development/building-raspberrypi.html>. one can also use an existing sc install assuming all the files are in their default linux directories.
+
 * `mkdir supercolliderStandaloneRPI2 && cd supercolliderStandaloneRPI2`
 * `cp /usr/local/bin/sc* .` #this will copy scide, sclang and scsynth
-* `cp -r /usr/local/lib/SuperCollider/plugins .` #copies all plugins
+* `cp -r /usr/local/lib/SuperCollider/plugins .` #copy all plugins
 * `mkdir -p share/system`
-* `cp -r /usr/local/share/SuperCollider/* share/system` #copies help, classes, examples etc
-* `mkdir -p share/user/Extensions`
-* `nano share/user/Extensions/extLinuxPlatform.sc`
-* and paste the following...
-```
-+ LinuxPlatform {
-    startup {
-        
-        helpDir = this.systemAppSupportDir++"/Help";
-        
-        // Server setup
-        Server.program = "exec ./scsynth";  //f0 edited
-        Server.default.options.ugenPluginsPath = "plugins";  //f0 added
-        
-        // Score setup
-        Score.program = Server.program;
-        
-        // default jack port hookup
-        "SC_JACK_DEFAULT_INPUTS".setenv("system");
-        "SC_JACK_DEFAULT_OUTPUTS".setenv("system");
-        
-        // automatically start jack when booting the server
-        // can still be overridden with JACK_NO_START_SERVER
-        "JACK_START_SERVER".setenv("true");
-        
-        // load user startup file
-        this.loadStartupFiles;
-    }
-}
-```
+* `cp -r /usr/local/share/SuperCollider/* share/system` #copy help, classes, examples etc
+* `mkdir share/system/Extensions`
+* `nano share/system/Extensions/extLinuxPlatform.sc`
+* and paste the content from <https://raw.githubusercontent.com/redFrik/supercolliderStandaloneRPI2/master/share/system/Extensions/extLinuxPlatform.sc>
 * `nano sclang.yaml`
-* and paste the following...
-```
-includePaths:
-    - ./share/system/SCClassLibrary
-    - ./share/user/Extensions
-postInlineWarnings: false
-```
-* `nano run.sh`
-* and paste the following...
-```
-sclang -a -l sclang.yaml mycode.scd
-```
-* `chmod +x run.sh`
-
+* and paste the content from <https://raw.githubusercontent.com/redFrik/supercolliderStandaloneRPI2/master/sclang.yaml>
+* `nano start.sh`
+* and paste the content from <https://raw.githubusercontent.com/redFrik/supercolliderStandaloneRPI2/master/start.sh>
+* `chmod +x start.sh`
 
 publish
 --
@@ -67,4 +32,5 @@ my own additional notes for this git repro...
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/plugins .`
   * `rm -r share`
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/share .`
+  * and possibly the yaml and start files as well if something changed
 * git commit and sync

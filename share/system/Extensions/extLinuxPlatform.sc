@@ -6,6 +6,7 @@
 		// Server setup
 		Server.program = "exec ./scsynth";  //f0 edited
 		Server.default.options.ugenPluginsPath = "plugins";  //f0 added
+		Server.default.options.loadDefs = false;  //f0 added
 
 		// Score setup
 		Score.program = Server.program;
@@ -22,9 +23,21 @@
 		this.loadStartupFiles;
 	}
 	systemAppSupportDir {
-		^"share/system";
+		^File.getcwd+/+"share/system";
 	}
 	userAppSupportDir {
-		^"share/user";
+		^File.getcwd+/+"share/user";
+	}
+	systemExtensionDir {
+		^this.systemAppSupportDir+/+"Extensions";
+	}
+	userExtensionDir {
+		^this.userAppSupportDir+/+"Extensions";
+	}
+	userConfigDir {
+		^this.userAppSupportDir;
+	}
+	resourceDir {
+		^this.systemAppSupportDir;
 	}
 }
