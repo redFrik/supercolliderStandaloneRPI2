@@ -21,5 +21,10 @@
 		// load user startup file
 		this.loadStartupFiles;
 	}
+	systemAppSupportDir {
+		^"share/system";
+	}
+	userAppSupportDir {
+		^"share/user";
+	}
 }
-

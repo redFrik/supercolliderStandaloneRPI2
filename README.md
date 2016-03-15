@@ -10,17 +10,24 @@ and the standalone structure is based on Miguel Negrão's <https://github.com/mi
 installation
 --
 
-open terminal on the rpi and type:
+open terminal on the rpi and type...
 
-* `git clone git://github.com/redFrik/supercolliderStandaloneRPI2`
+* `git clone git://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `sudo apt-get install libqt5webkit5 libqt5sensors5 libqt5positioning5 libcwiid-dev libfftw3-dev`
 * create an sc_ide_conf.yaml file TODO: add howto here
 
-then start sc by...
+scide
+--
+
+to run the full ide open terminal and type...
+
+* `qjackctl`
+
+start jack with the correct soundcard (under devices) and then open another terminal and type...
 
 * `cd supercolliderStandaloneRPI2`
-* `qjackctl`
-* `./run.sh`
+* `export PATH="${HOME}/supercolliderStandaloneRPI2:$PATH"`
+* `./start.sh`
 
 headless
 --
