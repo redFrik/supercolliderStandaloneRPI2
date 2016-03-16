@@ -1,8 +1,8 @@
 #notes
 
-instructions for building these binaries and set up a similar standalone repository...
+Instructions for building these binaries and set up a similar standalone repository...
 
-first build sc master on a rpi2 (or other linux box) following the instructions in the scide section here <http://supercollider.github.io/development/building-raspberrypi.html>. one can also use an existing sc install assuming all the files are in their default directories.
+First build SuperCollider master on a RPi2 (or other Linux box) following the instructions in the ScIDE section [here](http://supercollider.github.io/development/building-raspberrypi.html). One can also use an existing sc install assuming all the files are in their default directories.
 
 * `mkdir supercolliderStandaloneRPI2 && cd supercolliderStandaloneRPI2`
 * `cp /usr/local/bin/sc* .` #this will copy scide, sclang and scsynth
@@ -21,15 +21,15 @@ first build sc master on a rpi2 (or other linux box) following the instructions 
 * and paste the content from <https://raw.githubusercontent.com/redFrik/supercolliderStandaloneRPI2/master/start.sh>
 * `chmod +x start.sh`
 
-now the folder supercolliderStandaloneRPI2 should contain what is needed to run scide standalone (if started as in the README.md).
-copy it to another machine with the same system and try.
+Now the folder supercolliderStandaloneRPI2 should contain what is needed to run ScIDE standalone (if started as in the README.md). Copy it to another machine with the same system and try.
 
 publish
 --
 
-my own additional notes for this git repro...
+My own additional notes for this git repository...
 
 * note which supercollider master commit was used in README.md
+* note which raspbian image was used in README.md
 * copy the files over to laptop...
   * `cd supercolliderStandaloneRPI2`
   * `scp pi@raspberrypi.local:supercolliderStandaloneRPI2/sc* .`
@@ -37,5 +37,5 @@ my own additional notes for this git repro...
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/plugins .`
   * `rm -r share`
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/share .`
-  * and possibly the yaml and start files as well if something changed
+  * and possibly the yaml files as well if something changed
 * git commit and sync
