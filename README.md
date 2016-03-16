@@ -29,6 +29,7 @@ To run the full IDE first open a terminal window and type...
 Select the correct soundcard (under setup/interfaces) and then start jackd.
 
 Then double click the SuperColliderIDE desktop icon.
+![alt text](https://raw.githubusercontent.com/supercollider/supercollider/master/icons/sc_ide_48.png "SuperColliderIDE")
 
 SuperCollider IDE should now run like normal - with scope, meter, plot, gui, animation, quarks etc.
 
