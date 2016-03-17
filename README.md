@@ -3,9 +3,9 @@ Standalone for Raspberry Pi 2 Raspbian Jessie including the full IDE.
 
 This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (master branch commit 617f980, 21feb2016) compiled for armv7l.
 
-It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 2** model B under 2016-02-26-raspbian-jessie.img, and it also runs on **Raspberry Pi 3**. For the older **Raspberry Pi 1** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
+It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 2** model B under 2016-02-26-raspbian-jessie.img. It also works on the **Raspberry Pi 3**. For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
-The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file). It can coexist with the Raspbian bundled 3.6.6 version of SuperCollider used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously).
+The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled 3.6.6 version of SuperCollider used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously).
 
 installation
 --
@@ -60,6 +60,24 @@ To run sclang+scsynth only from ssh...
 * `./sclang -a -l sclang.yaml`
 
 NOTE: one can also specify a .scd file to load when starting sclang like this: `./sclang -a -l sclang.yaml mycode.scd`
+
+jessie-lite
+--
+
+The standalone also works under jessie-lite if the following additional steps are taken...
+
+installation:
+
+* `sudo apt-get install git dbus-x11 xvfb jackd2` #enable realtime when asked
+
+startup:
+
+* `export DISPLAY=:0.0`
+* ``export `dbus-launch | grep ADDRESS` ``
+* ``export `dbus-launch | grep PID` ``
+* `jackd -P95 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &` #edit -dhw to match your audio output. 0 is usually hdmi, and 1 the usb soundcard
+* `cd supercolliderStandaloneRPI2`
+* `xvfb-run --auto-servernum ./sclang -a -l sclang.yaml`
 
 autostart
 --
