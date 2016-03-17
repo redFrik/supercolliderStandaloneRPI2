@@ -1,9 +1,9 @@
 # supercolliderStandaloneRPI2
 Standalone for Raspberry Pi 2 Raspbian Jessie including the full IDE.
 
-This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (master branch commit 617f980) compiled for armv7l.
+This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (master branch commit 617f980, 21feb2016) compiled for armv7l.
 
-It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a Raspberry Pi 2 model B under 2016-02-26-raspbian-jessie.img, and it also runs on **Raspberry Pi 3**. For the older **Raspberry Pi 1** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
+It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 2** model B under 2016-02-26-raspbian-jessie.img, and it also runs on **Raspberry Pi 3**. For the older **Raspberry Pi 1** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
 The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file). It can coexist with the Raspbian bundled 3.6.6 version of SuperCollider used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously).
 
