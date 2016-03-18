@@ -19,7 +19,7 @@ open the terminal on the RPi and type...
 
 NOTE: the last command will create a global sc_ide preference file from a template. At the moment SuperCollider IDE can not use a local configuration file, but hopefully this will change in the future. Also note that if you cloned this repository somewhere else than in your pi home directory you should edit the yaml file with `nano ~/.config/SuperCollider/sc_ide_conf.yaml` to make the paths in there point to your standalone directory.
 
-scide
+startup
 --
 
 To run the full IDE first open a terminal window and type...
