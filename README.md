@@ -12,12 +12,13 @@ installation
 
 open the terminal on the RPi and type...
 
+* `sudo apt-get update`
 * `sudo apt-get install libqt5webkit5 libqt5sensors5 libqt5positioning5 libcwiid-dev libfftw3-dev`
 * `git clone git://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `mkdir ~/.config/SuperCollider`
 * `cp supercolliderStandaloneRPI2/sc_ide_conf_temp.yaml ~/.config/SuperCollider/sc_ide_conf.yaml`
 
-NOTE: the last command will create a global sc_ide preference file from a template. At the moment SuperCollider IDE can not use a local configuration file, but hopefully this will change in the future. Also note that if you cloned this repository somewhere else than in your pi home directory you should edit the yaml file with `nano ~/.config/SuperCollider/sc_ide_conf.yaml` to make the paths in there point to your standalone directory.
+NOTE: the last command will create a global sc_ide preference file from a template. At the moment SuperCollider IDE can not use a local configuration file, but hopefully this will change in the future. Also note that if you cloned this repository somewhere else than in your home directory you should edit the yaml file with `nano ~/.config/SuperCollider/sc_ide_conf.yaml` to make the paths in there point to your standalone directory.
 
 startup
 --
@@ -47,7 +48,7 @@ NOTE: the cd and export commands are necessary before starting scide as we need 
 
 NOTE: if the scide desktop shortcut is missing the typical icon (perhaps because you uninstalled the bundled sc), you can install it manually like this...
 
-`sudo curl -o /usr/share/pixmaps/sc_ide.svg https://raw.githubusercontent.com/supercollider/supercollider/master/icons/sc_ide.svg`
+* `sudo curl -o /usr/share/pixmaps/sc_ide.svg https://raw.githubusercontent.com/supercollider/supercollider/master/icons/sc_ide.svg`
 
 headless
 --
@@ -82,4 +83,8 @@ startup:
 autostart
 --
 
-todo
+* `sudo apt-get install xvfb`
+* `crontab -e` #and add the following line to the end
+  * `@reboot cd /home/pi/supercolliderStandaloneRPI2 && xvfb-run ./autostart.sh`
+
+Then edit the autostart script to load whichever file. By default it will load the file `mycode.scd`.

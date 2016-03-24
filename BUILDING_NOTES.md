@@ -27,9 +27,9 @@ My own additional notes for this git repository...
 * copy the files over to laptop...
   * `cd supercolliderStandaloneRPI2`
   * `scp pi@raspberrypi.local:supercolliderStandaloneRPI2/sc* .`
-  * `rm -r plugins`
+  * `rm -rf plugins`
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/plugins .`
-  * `rm -r share`
+  * `rm -rf share`
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/share .`
   * and possibly the yaml and desktop files as well if something changed
 * git commit and sync
