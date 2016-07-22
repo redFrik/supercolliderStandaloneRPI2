@@ -15,7 +15,7 @@ open the terminal on the RPi and type...
 * `sudo apt-get update`
 * `sudo apt-get install libqt5webkit5 libqt5sensors5 libqt5positioning5 libcwiid-dev libfftw3-dev`
 * `git clone https://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
-* `mkdir ~/.config/SuperCollider`
+* `mkdir -p ~/.config/SuperCollider`
 * `cp supercolliderStandaloneRPI2/sc_ide_conf_temp.yaml ~/.config/SuperCollider/sc_ide_conf.yaml`
 
 NOTE: the last command will create a global sc_ide preference file from a template. At the moment SuperCollider IDE can not use a local configuration file, but hopefully this will change in the future. Also note that if you cloned or moved this repository somewhere else than in your home directory you should edit the yaml file with `nano ~/.config/SuperCollider/sc_ide_conf.yaml` to make the paths in there point to your standalone directory.
