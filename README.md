@@ -42,7 +42,7 @@ if the desktop shortcut does not work or you want to start scide from the comman
 
 * `cd supercolliderStandaloneRPI2`
 * `export PATH=.:$PATH`
-* `scide`
+* `./scide`
 
 NOTE: the cd and export commands are necessary before starting scide as we need to use our standalone binaries and not the global Raspbian ones in /usr/bin/
 
