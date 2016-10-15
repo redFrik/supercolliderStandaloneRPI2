@@ -1,0 +1,38 @@
+title:: DEIND
+summary:: Ugen collection developed within the DEIND project
+categories:: Libraries
+related:: Classes/JPverb, Classes/Greyhole, Classes/ComplexRes, Classes/DiodeRingMod, Classes/DNoiseRing, Classes/RMS
+
+description::
+
+image::DEIND.png::
+
+SECTION:: UGens
+
+DEFINITIONLIST::
+## LINK::Classes/JPverb::
+|| Algorithmic reverberator, designed to produce long and rich reverberant tails
+## LINK::Classes/Greyhole::
+|| A complex echo-like effect
+## LINK::Classes/ComplexRes::
+|| FM-modulable resonating filter
+## LINK::Classes/DiodeRingMod::
+|| Ring modulation based on the physical model of a diode
+## LINK::Classes/DNoiseRing::
+|| Demand rate implementation of a Wiard noise ring
+## LINK::Classes/RMS::
+|| calculate the root mean square of a low-pass filtered signal (added 2016)
+::
+
+SECTION:: Information
+
+UGens in this package were originally developed within the DEIND project in 2013.
+
+The project aimed to connect people with autistic spectrum disorder with the field of contemporary electronic and digital music practice. People with severe autistic spectrum disorders were invited to take part in the design process of electronic instruments.
+To facilitate music practice, we aimed for a holistic instrument experience rather than a modular approach in which the underlying modules of electronic instruments – interface/mapping/sound synthesis – would become too evident and possibly confuse the player too much.
+
+The close integration of target group members encouraged a bilateral learning process for both researchers and participants.
+
+During the project we designed and implemented unit generators to support the development of DEIND instruments.
+
+More information at http://tai-studio.org/portfolio/deind.html .
