@@ -37,6 +37,8 @@ Then open another terminal window and type...
 
 SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, help, quarks etc.
 
+KNOWN ISSUES and TODO: help system and more is not working if scide is started via desktop icon
+
 autostart
 --
 
@@ -78,6 +80,7 @@ installation:
 * `sudo nano /etc/security/limits.conf` #and add the following two lines at the end
   * `@audio - memlock 256000`
   * `@audio - rtprio 75`
+* `nano supercolliderStandaloneRPI2/autostart.sh` #and change the jackd path to `/usr/local/bin/jackd`
 * `sudo reboot`
 
 startup:
