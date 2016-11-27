@@ -29,26 +29,23 @@ To run the full IDE first open a terminal window and type...
 
 Select the correct soundcard (under setup/interfaces) and then start jackd.
 
-Then double click the SuperColliderIDE desktop icon...
-
-![alt text](https://raw.githubusercontent.com/supercollider/supercollider/master/icons/sc_ide_48.png "SuperColliderIDE")
-
-SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, help, quarks etc.
-
-advanced
---
-
-if the desktop shortcut does not work or you want to start scide from the command line you do...
+Then open another terminal window and type...
 
 * `cd supercolliderStandaloneRPI2`
 * `export PATH=.:$PATH`
-* `./scide`
+* `scide`
 
-NOTE: the cd and export commands are necessary before starting scide as we need to use our standalone binaries and not the global Raspbian ones in /usr/bin/
+SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, help, quarks etc.
 
-NOTE: if the scide desktop shortcut is missing the typical icon (perhaps because you uninstalled the bundled sc), you can install it manually like this...
+autostart
+--
 
-* `sudo curl -o /usr/share/pixmaps/sc_ide.svg https://raw.githubusercontent.com/supercollider/supercollider/master/icons/sc_ide.svg`
+* `sudo apt-get install xvfb`
+* `crontab -e` #and add the following line to the end
+* `@reboot cd /home/pi/supercolliderStandaloneRPI2 && xvfb-run ./autostart.sh`
+* `sudo reboot` #and supercollider should automatically start after a while and play some beating sine tones.
+
+Then edit the autostart script to load whichever file. By default it will load `mycode.scd`.
 
 headless
 --
@@ -69,22 +66,22 @@ The standalone also works under jessie-lite if the following additional steps ar
 
 installation:
 
-* `sudo apt-get install git dbus-x11 xvfb jackd2` #enable realtime when asked
+* `sudo apt-get install git libcwiid1 libasound2-dev libsamplerate0-dev libsndfile1-dev libreadline-dev xvfb`
+* `git clone git://github.com/jackaudio/jack2.git --depth 1`
+* `cd jack2`
+* `./waf configure --alsa`
+* `./waf build`
+* `sudo ./waf install`
+* `sudo ldconfig`
+* `cd ..`
+* `rm -rf jack2`
+* `sudo nano /etc/security/limits.conf` #and add the following two lines at the end
+  * `@audio - memlock 256000`
+  * `@audio - rtprio 75`
+* `sudo reboot`
 
 startup:
 
-* `export DISPLAY=:0.0`
-* ``export `dbus-launch | grep ADDRESS` ``
-* ``export `dbus-launch | grep PID` ``
 * `jackd -P75 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &` #edit -dhw to match your audio output. 0 is usually hdmi, and 1 the usb soundcard
 * `cd supercolliderStandaloneRPI2`
 * `xvfb-run --auto-servernum ./sclang -a -l sclang.yaml`
-
-autostart
---
-
-* `sudo apt-get install xvfb`
-* `crontab -e` #and add the following line to the end
-  * `@reboot cd /home/pi/supercolliderStandaloneRPI2 && xvfb-run ./autostart.sh`
-
-Then edit the autostart script to load whichever file. By default it will load `mycode.scd`.
