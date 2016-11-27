@@ -1,0 +1,12 @@
+---
+# Generic Device
+# page:	0x06
+0x20:
+  name: Battery_Strength
+  type: DV
+0x21:
+  name: Wireless_Channel
+  type: DV
+0x22:
+  name: Wireless_ID
+  type: DV

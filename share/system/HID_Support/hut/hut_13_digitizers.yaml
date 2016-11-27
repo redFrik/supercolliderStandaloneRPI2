@@ -1,0 +1,122 @@
+---
+# Digitizers
+# page:	0x0D
+0x01: 
+  name: Digitizer
+  type: CA
+0x02: 
+  name: Pen
+  type: CA
+0x03: 
+  name: Light_Pen
+  type: CA
+0x04: 
+  name: Touch_Screen
+  type: CA
+0x05: 
+  name: Touch_Pad
+  type: CA
+0x06: 
+  name: White_Board
+  type: CA
+0x07: 
+  name: Coordinate_Measuring
+  type: CA
+0x08: 
+  name: Machine
+  type: CA
+0x09: 
+  name: 3D_Digitizer
+  type: CA
+0x0A: 
+  name: Stereo_Plotter
+  type: CA
+0x0B: 
+  name: Articulated_Arm
+  type: CA
+0x0C: 
+  name: Armature
+  type: CA
+0x0D: 
+  name: Multiple_Point_Digitizer
+  type: CA
+
+0x20: 
+  name: Stylus
+  type: CL
+0x21: 
+  name: Puck
+  type: CL
+0x22: 
+  name: Finger
+  type: CL
+  
+0x30: 
+  name: Tip_Pressure
+  type: DV
+0x31: 
+  name: Barrel_Pressure
+  type: DV
+0x32: 
+  name: In_Range
+  type: MC
+0x33: 
+  name: Touch
+  type: MC
+0x34: 
+  name: Untouch
+  type: OSC
+0x35: 
+  name: Tap
+  type: OSC
+0x36: 
+  name: Quality
+  type: DV
+0x37: 
+  name: Data_Valid
+  type: MC
+0x38: 
+  name: Transducer_Index
+  type: DV
+0x39: 
+  name: Tablet_Function_Keys
+  type: CL
+0x3A: 
+  name: Program_Change_Keys
+  type: CL
+0x3B: 
+  name: Battery_Strength
+  type: DV
+0x3C: 
+  name: Invert
+  type: MC
+0x3D: 
+  name: X_Tilt
+  type: DV
+0x3E: 
+  name: Y_Tilt
+  type: DV
+0x3F: 
+  name: Azimuth
+  type: DV
+0x40: 
+  name: Altitude
+  type: DV
+0x41: 
+  name: Twist
+  type: DV
+0x42: 
+  name: Tip_Switch
+  type: MC
+0x43: 
+  name: Secondary_Tip_Switch
+  type: MC
+0x44: 
+  name: Barrel_Switch
+  type: MC
+0x45: 
+  name: Eraser
+  type: MC
+0x46: 
+  name: Tablet_Pick
+  type: MC

@@ -1,0 +1,234 @@
+---
+# LED page
+# page:	0x08
+0x01: 
+  name: Undefined
+  type: OOC
+0x02: 
+  name: Num_Lock
+  type: OOC
+0x03: 
+  name: Caps_Lock
+  type: OOC
+0x04: 
+  name: Scroll_Lock
+  type: OOC
+0x05: 
+  name: Compose
+  type: OOC
+0x06: 
+  name: Kana
+  type: OOC
+0x07: 
+  name: Power
+  type: OOC
+0x08: 
+  name: Shift
+  type: OOC
+0x09: 
+  name: Do_Not_Disturb
+  type: OOC
+0x0A: 
+  name: Mute
+  type: OOC
+0x0B: 
+  name: Tone_Enable
+  type: OOC
+0x0C: 
+  name: High_Cut_Filter
+  type: OOC
+0x0D: 
+  name: Low_Cut_Filter
+  type: OOC
+0x0E: 
+  name: Equalizer_Enable
+  type: OOC
+0x0F: 
+  name: Sound_Field_On
+  type: OOC
+0x10: 
+  name: Surround_On
+  type: OOC
+0x11: 
+  name: Repeat
+  type: OOC
+0x12: 
+  name: Stereo
+  type: OOC
+0x13: 
+  name: Sampling_Rate_Detect
+  type: OOC
+0x14: 
+  name: Spinning
+  type: OOC
+0x15: 
+  name: CAV
+  type: OOC
+0x16: 
+  name: CLV
+  type: OOC
+0x17: 
+  name: Recording_Format_Detect
+  type: OOC
+0x18: 
+  name: Off-Hook
+  type: OOC
+0x19: 
+  name: Ring
+  type: OOC
+0x1A: 
+  name: Message_Waiting
+  type: OOC
+0x1B: 
+  name: Data_Mode
+  type: OOC
+0x1C: 
+  name: Battery_Operation
+  type: OOC
+0x1D: 
+  name: Battery_OK
+  type: OOC
+0x1E: 
+  name: Battery_Low
+  type: OOC
+0x1F: 
+  name: Speaker
+  type: OOC
+0x20: 
+  name: Head_Set
+  type: OOC
+0x21: 
+  name: Microphone
+  type: OOC
+0x22: 
+  name: Coverage
+  type: OOC
+0x23: 
+  name: Night_Mode
+  type: OOC
+0x24: 
+  name: Send_Calls
+  type: OOC
+0x25: 
+  name: Call_Pickup
+  type: OOC
+0x26: 
+  name: Conference
+  type: OOC
+0x27: 
+  name: Stand-by
+  type: OOC
+0x28: 
+  name: Camera_On
+  type: OOC
+0x29: 
+  name: Camera_Off
+  type: OOC
+0x2A: 
+  name: On-Line
+  type: OOC
+0x2B: 
+  name: Off-Line
+  type: OOC
+0x2C: 
+  name: Busy
+  type: OOC
+0x2D: 
+  name: Ready
+  type: OOC
+0x2E: 
+  name: Paper-Out
+  type: OOC
+0x2F: 
+  name: Paper-Jam
+  type: OOC
+0x30: 
+  name: Remote
+  type: OOC
+0x31: 
+  name: Forward
+  type: OOC
+0x32: 
+  name: Reverse
+  type: OOC
+0x33: 
+  name: Stop
+  type: OOC
+0x34: 
+  name: Rewind
+  type: OOC
+0x35: 
+  name: Fast_Forward
+  type: OOC
+0x36: 
+  name: Play
+  type: OOC
+0x37: 
+  name: Pause
+  type: OOC
+0x38: 
+  name: Record
+  type: OOC
+0x39: 
+  name: Error
+  type: OOC
+0x3A: 
+  name: Usage_Selected_Indicator
+  type: US
+0x3B: 
+  name: Usage_In_Use_Indicator
+  type: US
+0x3C: 
+  name: Usage_Multi_Mode_Indicator
+  type: UM
+0x3D: 
+  name: Indicator_On
+  type: Sel
+0x3E: 
+  name: Indicator_Flash
+  type: Sel
+0x3F: 
+  name: Indicator_Slow_Blink
+  type: Sel
+0x40: 
+  name: Indicator_Fast_Blink
+  type: Sel
+0x41: 
+  name: Indicator_Off
+  type: Sel
+0x42: 
+  name: Flash_On_Time
+  type: DV
+0x43: 
+  name: Slow_Blink_On_Time
+  type: DV
+0x44: 
+  name: Slow_Blink_Off_Time
+  type: DV
+0x45: 
+  name: Fast_Blink_On_Time
+  type: DV
+0x46: 
+  name: Fast_Blink_Off_Time
+  type: DV
+0x47: 
+  name: Usage_Indicator_Color
+  type: UM
+0x48: 
+  name: Indicator_Red
+  type: Sel
+0x49: 
+  name: Indicator_Green
+  type: Sel
+0x4A: 
+  name: Indicator_Amber
+  type: Sel
+0x4B: 
+  name: Generic_Indicator
+  type: OOC
+0x4C: 
+  name: System_Suspend
+  type: OOC
+0x4D: 
+  name: External_Power_Connected
+  type: OOC

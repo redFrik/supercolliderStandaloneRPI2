@@ -1,0 +1,158 @@
+---
+# Simulation Controls
+# page:	0x02
+0x01:
+  name: Flight_Simulation_Device
+  type: CA
+0x02:
+  name: Automobile_Simulation_Device
+  type: CA
+0x03:
+  name: Tank_Simulation_Device
+  type: CA
+0x04:
+  name: Spaceship_Simulation_Device
+  type: CA
+0x05:
+  name: Submarine_Simulation_Device
+  type: CA
+0x06:
+  name: Sailing_Simulation_Device
+  type: CA
+0x07:
+  name: Motorcycle_Simulation_Device
+  type: CA
+0x08:
+  name: Sports_Simulation_Device
+  type: CA
+0x09:
+  name: Airplane_Simulation_Device
+  type: CA
+0x0A:
+  name: Helicopter_Simulation_Device
+  type: CA
+0x0B:
+  name: Magic_Carpet_Simulation_Device
+  type: CA
+0x0C:
+  name: Bicycle_Simulation_Device
+  type: CA
+
+0x20:
+  name: Flight_Control_Stick
+  type: CA
+0x21:
+  name: Flight_Stick
+  type: CA
+0x22:
+  name: Cyclic_Control
+  type: CP
+0x23:
+  name: Cyclic_Trim
+  type: CP
+0x24:
+  name: Flight_Yoke
+  type: CA
+0x25:
+  name: Track_Control
+  type: CP
+
+0xB0:
+  name: Aileron
+  type: DV
+0xB1:
+  name: Aileron_Trim
+  type: DV
+0xB2:
+  name: Anti-Torque_Control
+  type: DV
+0xB3:
+  name: Autopilot_Enable
+  type: OOC
+0xB4:
+  name: Chaff_Release
+  type: OSC
+0xB5:
+  name: Collective_Control
+  type: DV
+0xB6:
+  name: Dive_Brake
+  type: DV
+0xB7:
+  name: Electronic_Countermeasures
+  type: OOC
+0xB8:
+  name: Elevator
+  type: DV
+0xB9:
+  name: Elevator_Trim
+  type: DV
+0xBA:
+  name: Rudder
+  type: DV
+0xBB:
+  name: Throttle
+  type: DV
+0xBC:
+  name: Flight_Communications
+  type: OOC
+0xBD:
+  name: Flare_Release
+  type: OSC
+0xBE:
+  name: Landing_Gear
+  type: OOC
+0xBF:
+  name: Toe_Brake
+  type: DV
+0xC0:
+  name: Trigger
+  type: MC
+0xC1:
+  name: Weapons_Arm
+  type: OOC
+0xC2:
+  name: Weapons_Select
+  type: OSC
+0xC3:
+  name: Wing_Flaps
+  type: DV
+0xC4:
+  name: Accelerator
+  type: DV
+0xC5:
+  name: Brake
+  type: DV
+0xC6:
+  name: Clutch
+  type: DV
+0xC7:
+  name: Shifter
+  type: DV
+0xC8:
+  name: Steering
+  type: DV
+0xC9:
+  name: Turret_Direction
+  type: DV
+0xCA:
+  name: Barrel_Elevation
+  type: DV
+0xCB:
+  name: Dive_Plane
+  type: DV
+0xCC:
+  name: Ballast
+  type: DV
+0xCD:
+  name: Bicycle_Rank
+  type: DV
+0xCE:
+  name: Handle_Bars
+  type: DV
+0xCF:
+  name: Front_Brake
+  type: DV
+0xD0:
+  name: Rear_Brake
+  type: DV

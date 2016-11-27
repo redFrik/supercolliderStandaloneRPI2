@@ -1,0 +1,209 @@
+---
+# Generic Desktop
+# page:	0x01
+0x01:
+  name: Pointer
+  type: CP
+0x02:
+  name: Mouse
+  type: CA
+0x04:
+  name: Joystick
+  type: CA
+0x05:
+  name: GamePad
+  type: CA
+0x06:
+  name: Keyboard
+  type: CA
+0x07:
+  name: Keypad
+  type: CA
+0x08:
+  name: MultiAxis_Controller
+  type: CA
+
+0x30:
+  name: X
+  type: DV
+0x31:
+  name: Y
+  type: DV
+0x32:
+  name: Z
+  type: DV
+0x33:
+  name: Rx
+  type: DV
+0x34:
+  name: Ry
+  type: DV
+0x35:
+  name: Rz
+  type: DV
+0x36:
+  name: Slider
+  type: DV
+0x37:
+  name: Dial
+  type: DV
+0x38:
+  name: Wheel
+  type: DV
+0x39:
+  name: Hat_switch
+  type: DV
+0x3A:
+  name: Counted_Buffer
+  type: CL
+0x3B:
+  name: Byte_Count
+  type: DV
+0x3C:
+  name: Motion_Wakeup
+  type: OSC
+0x3D:
+  name: Start
+  type: OOC
+0x3E:
+  name: Select
+  type: OOC
+
+0x40:
+  name: Vx
+  type: DV
+0x41:
+  name: Vy
+  type: DV
+0x42:
+  name: Vz
+  type: DV
+0x43:
+  name: Vbrx
+  type: DV
+0x44:
+  name: Vbry
+  type: DV
+0x45:
+  name: Vbrz
+  type: DV
+0x46:
+  name: Vno
+  type: DV
+0x47:
+  name: Feature_Notification
+  type: DV
+
+0x80:
+  name: System_Control
+  type: CA
+0x81:
+  name: System_Power_Down
+  type: OSC
+0x82:
+  name: System_Sleep
+  type: OSC
+0x83:
+  name: System_Wake_Up
+  type: OSC
+0x84:
+  name: System_Context_Menu
+  type: OSC
+0x85:
+  name: System_Main_Menu
+  type: OSC
+0x86:
+  name: System_App_Menu
+  type: OSC
+0x87:
+  name: System_Menu_Help
+  type: OSC
+0x88:
+  name: System_Menu_Exit
+  type: OSC
+0x89:
+  name: System_Menu_Select
+  type: OSC
+0x8A:
+  name: System_Menu_Right
+  type: RTC
+0x8B:
+  name: System_Menu_Left
+  type: RTC
+0x8C:
+  name: System_Menu_Up
+  type: RTC
+0x8D:
+  name: System_Menu_Down
+  type: RTC
+0x8E:
+  name: System_Cold_Restart
+  type: OSC
+0x8F:
+  name: System_Warm_Restart
+  type: OSC
+0x90:
+  name: D-pad_Up
+  type: OOC
+0x91:
+  name: D-pad_Down
+  type: OOC
+0x92:
+  name: D-pad_Right
+  type: OOC
+0x93:
+  name: D-pad_Left
+  type: OOC
+
+0xA0:
+  name: System_Dock
+  type: OSC
+0xA1:
+  name: System_Undock
+  type: OSC
+0xA2:
+  name: System_Setup
+  type: OSC
+0xA3:
+  name: System_Break
+  type: OSC
+0xA4:
+  name: System_Debugger_Break
+  type: OSC
+0xA5:
+  name: Application_Break
+  type: OSC
+0xA6:
+  name: Application_Debugger_Break
+  type: OSC
+0xA7:
+  name: System_Speaker_Mute
+  type: OSC
+0xA8:
+  name: System_Hibernate
+  type: OSC
+
+0xB0:
+  name: System_Display_Invert
+  type: OSC
+0xB1:
+  name: System_Display_Internal
+  type: OSC
+0xB2:
+  name: System_Display_External
+  type: OSC
+0xB3:
+  name: System_Display_Both
+  type: OSC
+0xB4:
+  name: System_Display_Dual
+  type: OSC
+0xB5:
+  name: System_Display_Toggle_IntExt
+  type: OSC
+0xB6:
+  name: System_Display_Swap_Primary_Secundary
+  type: OSC
+0xB7:
+  name: System_Display_LCD_Autoscale
+  type: OSC

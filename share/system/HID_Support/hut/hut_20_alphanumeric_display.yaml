@@ -1,0 +1,76 @@
+---
+# Alphanumeric Display
+# page:	0x20
+
+0x00:
+  name: Undefined
+0x01:
+   name: Alphanumeric Display
+0x20:
+   name: Display Attributes Report
+0x21:
+   name: ASCII Character Set
+0x22:
+   name: Data Read Back
+0x23:
+   name: Font Read Back
+0x24:
+   name: Display Control Report
+0x25:
+   name: Clear Display
+0x26:
+   name: Display Enable
+0x27:
+   name: Screen Saver Delay
+0x28:
+   name: Screen Saver Enable
+0x29:
+   name: Vertical Scroll
+0x2A:
+   name: Horizontal Scroll
+0x2B:
+   name: Character Report
+0x2C:
+   name: Display Data
+0x2D:
+   name: Display Status
+0x2E:
+   name: Stat Not Ready
+0x2F:
+   name: Stat Ready
+0x30:
+   name: Err Not a loadable character
+0x31:
+   name: Err Font data cannot be read
+0x32:
+   name: Cursor Position Report
+0x33:
+   name: Row
+0x34:
+   name: Column
+0x35:
+   name: Rows
+0x36:
+   name: Columns
+0x37:
+   name: Cursor Pixel Positioning
+0x38:
+   name: Cursor Mode
+0x39:
+   name: Cursor Enable
+0x3A:
+   name: Cursor Blink
+0x3B:
+   name: Font Report
+0x3C:
+   name: Font Data
+0x3D:
+   name: Character Width
+0x3E:
+   name: Character Height
+0x3F:
+   name: Character Spacing Horizontal
+0x40:
+   name: Character Spacing Vertical
+0x41:
+   name: Unicode Character Set

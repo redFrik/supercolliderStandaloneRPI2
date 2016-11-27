@@ -1,0 +1,133 @@
+---
+# Telephony
+# page:	0x0B
+# 0x01:
+#   name: Keyboard_ErrorRollOver
+#   type: Sel
+
+0x00:
+   name: Unassigned
+0x01:
+   name: Phone
+0x02:
+   name: Answering Machine
+0x03:
+   name: Message Controls
+0x04:
+   name: Handset
+0x05:
+   name: Headset
+0x06:
+   name: Telephony Key Pad
+0x07:
+   name: Programmable Button
+0x20:
+   name: Hook Switch
+0x21:
+   name: Flash
+0x22:
+   name: Feature
+0x23:
+   name: Hold
+0x24:
+   name: Redial
+0x25:
+   name: Transfer
+0x26:
+   name: Drop
+0x27:
+   name: Park
+0x28:
+   name: Forward Calls
+0x29:
+   name: Alternate Function
+0x2A:
+   name: Line
+0x2B:
+   name: Speaker Phone
+0x2C:
+   name: Conference
+0x2D:
+   name: Ring Enable
+0x2E:
+   name: Ring Select
+0x2F:
+   name: Phone Mute
+0x30:
+   name: Caller ID
+0x50:
+   name: Speed Dial
+0x51:
+   name: Store Number
+0x52:
+   name: Recall Number
+0x53:
+   name: Phone Directory
+0x70:
+   name: Voice Mail
+0x71:
+   name: Screen Calls
+0x72:
+   name: Do Not Disturb
+0x73:
+   name: Message
+0x74:
+   name: Answer On/Off
+0x90:
+   name: Inside Dial Tone
+0x91:
+   name: Outside Dial Tone
+0x92:
+   name: Inside Ring Tone
+0x93:
+   name: Outside Ring Tone
+0x94:
+   name: Priority Ring Tone
+0x95:
+   name: Inside Ringback
+0x96:
+   name: Priority Ringback
+0x97:
+   name: Line Busy Tone
+0x98:
+   name: Reorder Tone
+0x99:
+   name: Call Waiting Tone
+0x9A:
+   name: Confirmation Tone 1
+0x9B:
+   name: Confirmation Tone 2
+0x9C:
+   name: Tones Off
+0xB0:
+   name: Phone Key 0
+0xB1:
+   name: Phone Key 1
+0xB2:
+   name: Phone Key 2
+0xB3:
+   name: Phone Key 3
+0xB4:
+   name: Phone Key 4
+0xB5:
+   name: Phone Key 5
+0xB6:
+   name: Phone Key 6
+0xB7:
+   name: Phone Key 7
+0xB8:
+   name: Phone Key 8
+0xB9:
+   name: Phone Key 9
+0xBA:
+   name: Phone Key Star
+0xBB:
+   name: Phone Key Pound
+0xBC:
+   name: Phone Key A
+0xBD:
+   name: Phone Key B
+0xBE:
+   name: Phone Key C
+0xBF:
+   name: Phone Key D

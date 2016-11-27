@@ -1,9 +1,9 @@
 # supercolliderStandaloneRPI2
 Standalone for Raspberry Pi 2 Raspbian Jessie including the full IDE.
 
-This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (master branch commit 617f980, 21feb2016) compiled for armv7l.
+This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (3.8.0, commit 0947edd, 5nov2016) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (master, commit f1200cd, 8nov2016) compiled for rpi2 and rpi3.
 
-It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 2** model B under 2016-02-26-raspbian-jessie.img. It also works on the **Raspberry Pi 3**. For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
+It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2016-09-23-raspbian-jessie](http://raspberrypi.org/downloads/raspbian/) (Raspbian Jessie with Pixel). It also works on the **Raspberry Pi 2**. For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
 The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled 3.6.6 version of SuperCollider used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously).
 
@@ -56,7 +56,7 @@ headless
 To run sclang+scsynth only from ssh...
 
 * `export DISPLAY=:0.0`
-* `jackd -P95 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &` #edit -dhw to match your audio output. 0 is usually hdmi, and 1 the usb soundcard
+* `jackd -P75 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &` #edit -dhw to match your audio output. 0 is usually hdmi, and 1 the usb soundcard
 * `cd supercolliderStandaloneRPI2`
 * `./sclang -a -l sclang.yaml`
 
@@ -76,7 +76,7 @@ startup:
 * `export DISPLAY=:0.0`
 * ``export `dbus-launch | grep ADDRESS` ``
 * ``export `dbus-launch | grep PID` ``
-* `jackd -P95 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &` #edit -dhw to match your audio output. 0 is usually hdmi, and 1 the usb soundcard
+* `jackd -P75 -dalsa -dhw:1 -p1024 -n3 -s -r44100 &` #edit -dhw to match your audio output. 0 is usually hdmi, and 1 the usb soundcard
 * `cd supercolliderStandaloneRPI2`
 * `xvfb-run --auto-servernum ./sclang -a -l sclang.yaml`
 

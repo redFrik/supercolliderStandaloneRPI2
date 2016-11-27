@@ -1,0 +1,464 @@
+---
+# Consumer
+# page:	0x0C
+
+0x01:
+   name: Consumer Control
+   type: CA
+0x02:
+   name: Numeric Key Pad
+   type: NAry
+0x03:
+   name: Programmable Buttons
+   type: NAry
+0x04:
+   name: Microphone
+   type: CA
+0x05:
+   name: Headphone
+   type: CA
+0x06:
+   name: Graphic Equalizer
+   type: CA
+0x20:
+   name:  +10
+0x21:
+   name:  +100
+0x22:
+   name:  AM/PM
+0x30:
+   name:  Power
+0x31:
+   name:  Reset
+0x32:
+   name:  Sleep
+0x33:
+   name:  Sleep After
+0x34:
+   name:  Sleep Mode
+0x35:
+   name:  Illumination
+0x36:
+   name:  Function Buttons
+0x40:
+   name:  Menu
+0x41:
+   name:  Menu  Pick
+0x42:
+   name:  Menu Up
+0x43:
+   name:  Menu Down
+0x44:
+   name:  Menu Left
+0x45:
+   name:  Menu Right
+0x46:
+   name:  Menu Escape
+0x47:
+   name:  Menu Value Increase
+0x48:
+   name:  Menu Value Decrease
+0x60:
+   name:  Data On Screen
+0x61:
+   name:  Closed Caption
+0x62:
+   name:  Closed Caption Select
+0x63:
+   name:  VCR/TV
+0x64:
+   name:  Broadcast Mode
+0x65:
+   name:  Snapshot
+0x66:
+   name:  Still
+0x80:
+   name:  Selection
+0x81:
+   name:  Assign Selection
+0x82:
+   name:  Mode Step
+0x83:
+   name:  Recall Last
+0x84:
+   name:  Enter Channel
+0x85:
+   name:  Order Movie
+0x86:
+   name:  Channel
+0x87:
+   name:  Media Selection
+0x88:
+   name:  Media Select Computer
+0x89:
+   name:  Media Select TV
+0x8A:
+   name:  Media Select WWW
+0x8B:
+   name:  Media Select DVD
+0x8C:
+   name:  Media Select Telephone
+0x8D:
+   name:  Media Select Program Guide
+0x8E:
+   name:  Media Select Video Phone
+0x8F:
+   name:  Media Select Games
+0x90:
+   name:  Media Select Messages
+0x91:
+   name:  Media Select CD
+0x92:
+   name:  Media Select VCR
+0x93:
+   name:  Media Select Tuner
+0x94:
+   name:  Quit
+0x95:
+   name:  Help
+0x96:
+   name:  Media Select Tape
+0x97:
+   name:  Media Select Cable
+0x98:
+   name:  Media Select Satellite
+0x99:
+   name:  Media Select Security
+0x9A:
+   name:  Media Select Home
+0x9B:
+   name:  Media Select Call
+0x9C:
+   name:  Channel Increment
+0x9D:
+   name:  Channel Decrement
+0x9E:
+   name:  Media Select SAP
+0xA0:
+   name:  VCR Plus
+0xA1:
+   name:  Once
+0xA2:
+   name:  Daily
+0xA3:
+   name:  Weekly
+0xA4:
+   name:  Monthly
+0xB0:
+   name:  Play
+0xB1:
+   name:  Pause
+0xB2:
+   name:  Record
+0xB3:
+   name:  Fast Forward
+0xB4:
+   name:  Rewind
+0xB5:
+   name:  Scan Next Track
+0xB6:
+   name:  Scan Previous Track
+0xB7:
+   name:  Stop
+0xB8:
+   name:  Eject
+0xB9:
+   name:  Random Play
+0xBA:
+   name:  Select DisC
+0xBB:
+   name:  Enter Disc
+0xBC:
+   name:  Repeat
+0xBD:
+   name:  Tracking
+0xBE:
+   name:  Track Normal
+0xBF:
+   name:  Slow Tracking
+0xC0:
+   name:  Frame Forward
+0xC1:
+   name:  Frame Back
+0xC2:
+   name:  Mark
+0xC3:
+   name:  Clear Mark
+0xC4:
+   name:  Repeat From Mark
+0xC5:
+   name:  Return To Mark
+0xC6:
+   name:  Search Mark Forward
+0xC7:
+   name:  Search Mark Backwards
+0xC8:
+   name:  Counter Reset
+0xC9:
+   name:  Show Counter
+0xCA:
+   name:  Tracking Increment
+0xCB:
+   name:  Tracking Decrement
+0xE0:
+   name:  Volume
+0xE1:
+   name:  Balance
+0xE2:
+   name:  Mute
+0xE3:
+   name:  Bass
+0xE4:
+   name:  Treble
+0xE5:
+   name:  Bass Boost
+0xE6:
+   name:  Surround Mode
+0xE7:
+   name:  Loudness
+0xE8:
+   name:  MPX
+0xE9:
+   name:  Volume Up
+0xEA:
+   name:  Volume Down
+0xF0:
+   name:  Speed Select
+0xF1:
+   name:  Playback Speed
+0xF2:
+   name:  Standard Play
+0xF3:
+   name:  Long Play
+0xF4:
+   name:  Extended Play
+0xF5:
+   name:  Slow
+0x100:
+   name: Fan Enable
+0x101:
+   name: Fan Speed
+0x102:
+   name: Light
+0x103:
+   name: Light Illumination Level
+0x104:
+   name: Climate Control Enable
+0x105:
+   name: Room Temperature
+0x106:
+   name: Security Enable
+0x107:
+   name: Fire Alarm
+0x108:
+   name: Police Alarm
+0x150:
+   name: Balance Right
+0x151:
+   name: Balance Left
+0x152:
+   name: Bass Increment
+0x153:
+   name: Bass Decrement
+0x154:
+   name: Treble Increment
+0x155:
+   name: Treble Decrement
+0x160:
+   name: Speaker System
+0x161:
+   name: Channel Left
+0x162:
+   name: Channel Right
+0x163:
+   name: Channel Center
+0x164:
+   name: Channel Front
+0x165:
+   name: Channel Center Front
+0x166:
+   name: Channel Side
+0x167:
+   name: Channel Surround
+0x168:
+   name: Channel Low Frequency Enhancement
+0x169:
+   name: Channel Top
+0x16A:
+   name: Channel Unknown
+0x170:
+   name: Sub-channel
+0x171:
+   name: Sub-channel Increment
+0x172:
+   name: Sub-channel Decrement
+0x173:
+   name: Alternate Audio Increment
+0x174:
+   name: Alternate Audio Decrement
+0x180:
+   name: Application Launch Buttons
+0x181:
+   name: AL Launch Button Configuration Tool
+0x182:
+   name: AL Programmable Button Configuration
+0x183:
+   name: AL Consumer Control Configuration
+0x184:
+   name: AL Word Processor
+0x185:
+   name: AL Text Editor
+0x186:
+   name: AL Spreadsheet
+0x187:
+   name: AL Graphics Editor
+0x188:
+   name: AL Presentation App
+0x189:
+   name: AL Database App
+0x18A:
+   name: AL Email Reader
+0x18B:
+   name: AL Newsreader
+0x18C:
+   name: AL Voicemail
+0x18D:
+   name: AL Contacts/Address Book
+0x18E:
+   name: AL Calendar/Schedule
+0x18F:
+   name: AL Task/Project Manager
+0x190:
+   name: AL Log/Journal/Timecard
+0x191:
+   name: AL Checkbook/Finance
+0x192:
+   name: AL Calculator
+0x193:
+   name: AL A/V Capture/Playback
+0x194:
+   name: AL Local Machine Browser
+0x195:
+   name: AL LAN/WAN Browser
+0x196:
+   name: AL Internet Browser
+0x197:
+   name: AL Remote Networking/ISP Connect
+0x198:
+   name: AL Network Conference
+0x199:
+   name: AL Network Chat
+0x19A:
+   name: AL Telephony/Dialer
+0x19B:
+   name: AL Logon
+0x19C:
+   name: AL Logoff
+0x19D:
+   name: AL Logon/Logoff
+0x19E:
+   name: AL Terminal Lock/Screensaver
+0x19F:
+   name: AL Control Panel
+0x1A0:
+   name: AL Command Line Processor/Run
+0x1A1:
+   name: AL Process/Task Manager
+0x1A2:
+   name: AL Select Tast/Application
+0x1A3:
+   name: AL Next Task/Application
+0x1A4:
+   name: AL Previous Task/Application
+0x1A5:
+   name: AL Preemptive Halt Task/Application
+0x200:
+   name: Generic GUI Application Controls
+0x201:
+   name: AC New
+0x202:
+   name: AC Open
+0x203:
+   name: AC Close
+0x204:
+   name: AC Exit
+0x205:
+   name: AC Maximize
+0x206:
+   name: AC Minimize
+0x207:
+   name: AC Save
+0x208:
+   name: AC Print
+0x209:
+   name: AC Properties
+0x21A:
+   name: AC Undo
+0x21B:
+   name: AC Copy
+0x21C:
+   name: AC Cut
+0x21D:
+   name: AC Paste
+0x21E:
+   name: AC Select All
+0x21F:
+   name: AC Find
+0x220:
+   name: AC Find and Replace
+0x221:
+   name: AC Search
+0x222:
+   name: AC Go To
+0x223:
+   name: AC Home
+0x224:
+   name: AC Back
+0x225:
+   name: AC Forward
+0x226:
+   name: AC Stop
+0x227:
+   name: AC Refresh
+0x228:
+   name: AC Previous Link
+0x229:
+   name: AC Next Link
+0x22A:
+   name: AC Bookmarks
+0x22B:
+   name: AC History
+0x22C:
+   name: AC Subscriptions
+0x22D:
+   name: AC Zoom In
+0x22E:
+   name: AC Zoom Out
+0x22F:
+   name: AC Zoom
+0x230:
+   name: AC Full Screen View
+0x231:
+   name: AC Normal View
+0x232:
+   name: AC View Toggle
+0x233:
+   name: AC Scroll Up
+0x234:
+   name: AC Scroll Down
+0x235:
+   name: AC Scroll
+0x236:
+   name: AC Pan Left
+0x237:
+   name: AC Pan Right
+0x238:
+   name: AC Pan
+0x239:
+   name: AC New Window
+0x23A:
+   name: AC Tile Horizontally
+0x23B:
+   name: AC Tile Vertically
+0x23C:
+   name: AC Format

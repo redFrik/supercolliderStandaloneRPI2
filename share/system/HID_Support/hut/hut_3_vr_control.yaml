@@ -1,0 +1,40 @@
+---
+# VR Controls
+# page:	0x03
+0x01:
+  name: Belt
+  type: CA
+0x02:
+  name: Body_Suit
+  type: CA
+0x03:
+  name: Flexor
+  type: CP
+0x04:
+  name: Glove
+  type: CA
+0x05:
+  name: Head_Tracker
+  type: CP
+0x06:
+  name: Head_Mounted_Display
+  type: CA
+0x07:
+  name: Hand_Tracker
+  type: CA
+0x08:
+  name: Oculometer
+  type: CA
+0x09:
+  name: Vest
+  type: CA
+0x0A:
+  name: Animatronic_Device
+  type: CA
+  
+0x20:
+  name: Stereo_Enable
+  type: OOC
+0x21:
+  name: Display_Enable
+  type: OOC

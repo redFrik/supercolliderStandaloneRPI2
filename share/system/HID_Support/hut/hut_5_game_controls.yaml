@@ -1,0 +1,88 @@
+---
+# Games Page
+# page:	0x05
+0x01:
+  name: 3D_Game_Controller
+  type: CA
+0x02:
+  name: Pinball_Device
+  type: CA
+0x03:
+  name: Gun_Device
+  type: CA
+
+0x20:
+  name: Point_of_View
+  type: CP
+0x21:
+  name: Turn_Right_Left
+  type: DV
+0x22:
+  name: Pitch_Forward_Backward
+  type: DV
+0x23:
+  name: Roll_Right_Left
+  type: DV
+0x24:
+  name: Move_Right_Left
+  type: DV
+0x25:
+  name: Move_Forward_Backward
+  type: DV
+0x26:
+  name: Move_Up_Down
+  type: DV
+0x27:
+  name: Lean_Right_Left
+  type: DV
+0x28:
+  name: Lean_Forward_Backward
+  type: DV
+0x29:
+  name: Height_of_POV
+  type: DV
+0x2A:
+  name: Flipper
+  type: MC
+0x2B:
+  name: Secondary_Flipper
+  type: MC
+0x2C:
+  name: Bump
+  type: MC
+0x2D:
+  name: New_Game
+  type: OSC
+0x2E:
+  name: Shoot_Ball
+  type: OSC
+0x2F:
+  name: Player
+  type: OSC
+0x30:
+  name: Gun_Bolt
+  type: OOC
+0x31:
+  name: Gun_Clip
+  type: OOC
+0x32:
+  name: Gun_Selector
+  type: NAry
+0x33:
+  name: Gun_Single_Shot
+  type: Sel
+0x34:
+  name: Gun_Burst
+  type: Sel
+0x35:
+  name: Gun_Automatic
+  type: Sel
+0x36:
+  name: Gun_Safety
+  type: OOC
+0x37:
+  name: Gamepad_Fire_Jump
+  type: CL
+0x38:
+  name: Gamepad_Trigger
+  type: CL

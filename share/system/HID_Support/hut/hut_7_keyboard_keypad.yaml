@@ -1,0 +1,659 @@
+---
+# Keyboard - Keypad
+# page:	0x07
+0x01:
+  name: Keyboard_ErrorRollOver
+  type: Sel
+0x02:
+  name: Keyboard_POSTFail
+  type: Sel
+0x03:
+  name: Keyboard_ErrorUndefined
+  type: Sel
+0x04:
+  name: Keyboard_a
+  type: Sel
+0x05:
+  name: Keyboard_b
+  type: Sel
+0x06:
+  name: Keyboard_c
+  type: Sel
+0x07:
+  name: Keyboard_d
+  type: Sel
+0x08:
+  name: Keyboard_e
+  type: Sel
+0x09:
+  name: Keyboard_f
+  type: Sel
+0x0A:
+  name: Keyboard_g
+  type: Sel
+0x0B:
+  name: Keyboard_h
+  type: Sel
+0x0C:
+  name: Keyboard_i
+  type: Sel
+0x0D:
+  name: Keyboard_j
+  type: Sel
+0x0E:
+  name: Keyboard_k
+  type: Sel
+0x0F:
+  name: Keyboard_l
+  type: Sel
+0x10:
+  name: Keyboard_m
+  type: Sel
+0x11:
+  name: Keyboard_n
+  type: Sel
+0x12:
+  name: Keyboard_o
+  type: Sel
+0x13:
+  name: Keyboard_p
+  type: Sel
+0x14:
+  name: Keyboard_q
+  type: Sel
+0x15:
+  name: Keyboard_r
+  type: Sel
+0x16:
+  name: Keyboard_s
+  type: Sel
+0x17:
+  name: Keyboard_t
+  type: Sel
+0x18:
+  name: Keyboard_u
+  type: Sel
+0x19:
+  name: Keyboard_v
+  type: Sel
+0x1A:
+  name: Keyboard_w
+  type: Sel
+0x1B:
+  name: Keyboard_x
+  type: Sel
+0x1C:
+  name: Keyboard_y
+  type: Sel
+0x1D:
+  name: Keyboard_z
+  type: Sel
+0x1E:
+  name: Keyboard_1
+  type: Sel
+0x1F:
+  name: Keyboard_2
+  type: Sel
+0x20:
+  name: Keyboard_3
+  type: Sel
+0x21:
+  name: Keyboard_4
+  type: Sel
+0x22:
+  name: Keyboard_5
+  type: Sel
+0x23:
+  name: Keyboard_6
+  type: Sel
+0x24:
+  name: Keyboard_7
+  type: Sel
+0x25:
+  name: Keyboard_8
+  type: Sel
+0x26:
+  name: Keyboard_9
+  type: Sel
+0x27:
+  name: Keyboard_0
+  type: Sel
+0x28:
+  name: Keyboard_Return_Enter
+  type: Sel
+0x29:
+  name: Keyboard_ESCAPE
+  type: Sel
+0x2A:
+  name: Keyboard_DELETE_Backspace
+  type: Sel
+0x2B:
+  name: Keyboard_Tab
+  type: Sel
+0x2C:
+  name: Keyboard_Spacebar
+  type: Sel
+0x2D:
+  name: Keyboard_-
+  type: Sel
+0x2E:
+  name: Keyboard_=
+  type: Sel
+0x2F:
+  name: Keyboard_[
+  type: Sel
+0x30:
+  name: Keyboard_]
+  type: Sel
+0x31:
+  name: Keyboard_\
+  type: Sel
+0x32:
+  name: Keyboard_#
+  type: Sel
+0x33:
+  name: Keyboard_;
+  type: Sel
+0x34:
+  name: "Keyboard_'"
+  type: Sel
+0x35:
+  name: Keyboard_Grave_Accent
+  type: Sel
+0x36:
+  name: Keyboard_,
+  type: Sel
+0x37:
+  name: Keyboard_.
+  type: Sel
+0x38:
+  name: Keyboard_/
+  type: Sel
+0x39:
+  name: Keyboard_CapsLock
+  type: Sel
+0x3A:
+  name: Keyboard_F1
+  type: Sel
+0x3B:
+  name: Keyboard_F2
+  type: Sel
+0x3C:
+  name: Keyboard_F3
+  type: Sel
+0x3D:
+  name: Keyboard_F4
+  type: Sel
+0x3E:
+  name: Keyboard_F5
+  type: Sel
+0x3F:
+  name: Keyboard_F6
+  type: Sel
+0x40:
+  name: Keyboard_F7
+  type: Sel
+0x41:
+  name: Keyboard_F8
+  type: Sel
+0x42:
+  name: Keyboard_F9
+  type: Sel
+0x43:
+  name: Keyboard_F10
+  type: Sel
+0x44:
+  name: Keyboard_F11
+  type: Sel
+0x45:
+  name: Keyboard_F12
+  type: Sel
+0x46:
+  name: Keyboard_PrintScreen
+  type: Sel
+0x47:
+  name: Keyboard_ScrollLock
+  type: Sel
+0x48:
+  name: Keyboard_Pause
+  type: Sel
+0x49:
+  name: Keyboard_Insert
+  type: Sel
+0x4A:
+  name: Keyboard_Home
+  type: Sel
+0x4B:
+  name: Keyboard_PageUp
+  type: Sel
+0x4C:
+  name: Keyboard_Delete_Forward
+  type: Sel
+0x4D:
+  name: Keyboard_End
+  type: Sel
+0x4E:
+  name: Keyboard_PageDown
+  type: Sel
+0x4F:
+  name: Keyboard_RightArrow
+  type: Sel
+0x50:
+  name: Keyboard_LeftArrow
+  type: Sel
+0x51:
+  name: Keyboard_DownArrow
+  type: Sel
+0x52:
+  name: Keyboard_UpArrow
+  type: Sel
+0x53:
+  name: Keyboard_NumLock
+  type: Sel
+0x54:
+  name: Keypad_/
+  type: Sel
+0x55:
+  name: Keypad_*
+  type: Sel
+0x56:
+  name: Keypad_-
+  type: Sel
+0x57:
+  name: Keypad_+
+  type: Sel
+0x58:
+  name: Keypad_ENTER
+  type: Sel
+0x59:
+  name: Keypad_1
+  type: Sel
+0x5A:
+  name: Keypad_2
+  type: Sel
+0x5B:
+  name: Keypad_3
+  type: Sel
+0x5C:
+  name: Keypad_4
+  type: Sel
+0x5D:
+  name: Keypad_5
+  type: Sel
+0x5E:
+  name: Keypad_6
+  type: Sel
+0x5F:
+  name: Keypad_7
+  type: Sel
+0x60:
+  name: Keypad_8
+  type: Sel
+0x61:
+  name: Keypad_9
+  type: Sel
+0x62:
+  name: Keypad_0
+  type: Sel
+0x63:
+  name: Keypad_.
+  type: Sel
+0x64:
+  name: Keypad_\
+  type: Sel
+0x65:
+  name: Keyboard_Application
+  type: Sel
+0x66:
+  name: Keyboard_Power
+  type: Sel
+0x67:
+  name: Keypad_=
+  type: Sel
+0x68:
+  name: Keyboard_F13
+  type: Sel
+0x69:
+  name: Keyboard_F14
+  type: Sel
+0x6A:
+  name: Keyboard_F15
+  type: Sel
+0x6B:
+  name: Keyboard_F16
+  type: Sel
+0x6C:
+  name: Keyboard_F17
+  type: Sel
+0x6D:
+  name: Keyboard_F18
+  type: Sel
+0x6E:
+  name: Keyboard_F19
+  type: Sel
+0x6F:
+  name: Keyboard_F20
+  type: Sel
+0x70:
+  name: Keyboard_F21
+  type: Sel
+0x71:
+  name: Keyboard_F22
+  type: Sel
+0x72:
+  name: Keyboard_F23
+  type: Sel
+0x73:
+  name: Keyboard_F24
+  type: Sel
+0x74:
+  name: Keyboard_Execute
+  type: Sel
+0x75:
+  name: Keyboard_Help
+  type: Sel
+0x76:
+  name: Keyboard_Menu
+  type: Sel
+0x77:
+  name: Keyboard_Select
+  type: Sel
+0x78:
+  name: Keyboard_Stop
+  type: Sel
+0x79:
+  name: Keyboard_Again
+  type: Sel
+0x7A:
+  name: Keyboard_Undo
+  type: Sel
+0x7B:
+  name: Keyboard_Cut
+  type: Sel
+0x7C:
+  name: Keyboard_Copy
+  type: Sel
+0x7D:
+  name: Keyboard_Paste
+  type: Sel
+0x7E:
+  name: Keyboard_Find
+  type: Sel
+0x7F:
+  name: Keyboard_Mute
+  type: Sel
+0x80:
+  name: Keyboard_VolumeUp
+  type: Sel
+0x81:
+  name: Keyboard_VolumeDown
+  type: Sel
+0x82:
+  name: Keyboard_Locking_CapsLock
+  type: Sel
+0x83:
+  name: Keyboard_Locking_NumLock
+  type: Sel
+0x84:
+  name: Keyboard_Locking_ScrollLock
+  type: Sel
+0x85:
+  name: Keypad_Comma
+  type: Sel
+0x86:
+  name: Keypad_EqualSign
+  type: Sel
+0x87:
+  name: Keyboard_International1
+  type: Sel
+0x88:
+  name: Keyboard_International2
+  type: Sel
+0x89:
+  name: Keyboard_International3
+  type: Sel
+0x8A:
+  name: Keyboard_International4
+  type: Sel
+0x8B:
+  name: Keyboard_International5
+  type: Sel
+0x8C:
+  name: Keyboard_International6
+  type: Sel
+0x8D:
+  name: Keyboard_International7
+  type: Sel
+0x8E:
+  name: Keyboard_International8
+  type: Sel
+0x8F:
+  name: Keyboard_International9
+  type: Sel
+0x90:
+  name: Keyboard_LANG1
+  type: Sel
+0x91:
+  name: Keyboard_LANG2
+  type: Sel
+0x92:
+  name: Keyboard_LANG3
+  type: Sel
+0x93:
+  name: Keyboard_LANG4
+  type: Sel
+0x94:
+  name: Keyboard_LANG5
+  type: Sel
+0x95:
+  name: Keyboard_LANG6
+  type: Sel
+0x96:
+  name: Keyboard_LANG7
+  type: Sel
+0x97:
+  name: Keyboard_LANG8
+  type: Sel
+0x98:
+  name: Keyboard_LANG9
+  type: Sel
+0x99:
+  name: Keyboard_Alternate_Erase
+  type: Sel
+0x9A:
+  name: Keyboard_SysReq_Attention
+  type: Sel
+0x9B:
+  name: Keyboard_Cancel
+  type: Sel
+0x9C:
+  name: Keyboard_Clear
+  type: Sel
+0x9D:
+  name: Keyboard_Prior
+  type: Sel
+0x9E:
+  name: Keyboard_Return
+  type: Sel
+0x9F:
+  name: Keyboard_Separator
+  type: Sel
+0xA0:
+  name: Keyboard_Out
+  type: Sel
+0xA1:
+  name: Keyboard_Oper
+  type: Sel
+0xA2:
+  name: Keyboard_Clear_Again
+  type: Sel
+0xA3:
+  name: Keyboard_CrSel_Props
+  type: Sel
+0xA4:
+  name: Keyboard_ExSel
+  type: Sel
+
+0xB0:
+  name: Keypad_00
+  type: Sel
+0xB1:
+  name: Keypad_000
+  type: Sel
+0xB2:
+  name: Thousands_Separator
+  type: Sel
+0xB3:
+  name: Decimal_Separator
+  type: Sel
+0xB4:
+  name: Currency_Unit
+  type: Sel
+0xB5:
+  name: Currency_Subunit
+  type: Sel
+0xB6:
+  name: Keypad_(
+  type: Sel
+0xB7:
+  name: Keypad_)
+  type: Sel
+0xB8:
+  name: Keypad_{
+  type: Sel
+0xB9:
+  name: Keypad_}
+  type: Sel
+0xBA:
+  name: Keypad_Tab
+  type: Sel
+0xBB:
+  name: Keypad_Backspace
+  type: Sel
+0xBC:
+  name: Keypad_A
+  type: Sel
+0xBD:
+  name: "Keypad_B"
+  type: Sel
+0xBE:
+  name: "Keypad_C"
+  type: Sel
+0xBF:
+  name: "Keypad_D"
+  type: Sel
+0xC0:
+  name: "Keypad_E"
+  type: Sel
+0xC1:
+  name: "Keypad_F"
+  type: Sel
+0xC2:
+  name: "Keypad_XOR"
+  type: Sel
+0xC3:
+  name: "Keypad_^"
+  type: Sel
+0xC4:
+  name: "Keypad_%"
+  type: Sel
+0xC5:
+  name: "Keypad_<"
+  type: Sel
+0xC6:
+  name: "Keypad_>"
+  type: Sel
+0xC7:
+  name: "Keypad_&"
+  type: Sel
+0xC8:
+  name: "Keypad_&&"
+  type: Sel
+0xC9:
+  name: "Keypad_|"
+  type: Sel
+0xCA:
+  name: "Keypad_||"
+  type: Sel
+0xCB:
+  name: "Keypad_:"
+  type: Sel
+0xCC:
+  name: Keypad_#
+  type: Sel
+0xCD:
+  name: "Keypad_Space"
+  type: Sel
+0xCE:
+  name: "Keypad_@"
+  type: Sel
+0xCF:
+  name: "Keypad_!"
+  type: Sel
+0xD0:
+  name: "Keypad_MemoryStore"
+  type: Sel
+0xD1:
+  name: "Keypad_MemoryRecall"
+  type: Sel
+0xD2:
+  name: "Keypad_MemoryClear"
+  type: Sel
+0xD3:
+  name: "Keypad_MemoryAdd"
+  type: Sel
+0xD4:
+  name: "Keypad_MemorySubtract"
+  type: Sel
+0xD5:
+  name: "Keypad_MemoryMultiply"
+  type: Sel
+0xD6:
+  name: "Keypad_MemoryDivide"
+  type: Sel
+0xD7:
+  name: "Keypad_+/-"
+  type: Sel
+0xD8:
+  name: "Keypad_Clear"
+  type: Sel
+0xD9:
+  name: "Keypad_ClearEntry"
+  type: Sel
+0xDA:
+  name: "Keypad_Binary"
+  type: Sel
+0xDB:
+  name: "Keypad_Octal"
+  type: Sel
+0xDC:
+  name: "Keypad_Decimal"
+  type: Sel
+0xDD:
+  name: "Keypad_Hexadecimal"
+  type: Sel
+
+0xE0:
+  name: Keyboard_LeftControl
+  type: DV
+0xE1:
+  name: Keyboard_LeftShift
+  type: DV
+0xE2:
+  name: Keyboard_LeftAlt
+  type: DV
+0xE3:
+  name: Keyboard_LeftGUI
+  type: DV
+0xE4:
+  name: Keyboard_RightControl
+  type: DV
+0xE5:
+  name: Keyboard_RightShift
+  type: DV
+0xE6:
+  name: Keyboard_RightAlt
+  type: DV
+0xE7:
+  name: Keyboard_RightGUI
+  type: DV

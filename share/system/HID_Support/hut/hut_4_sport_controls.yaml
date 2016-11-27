@@ -1,0 +1,107 @@
+---
+# Sport Controls
+# page:	0x04
+0x01: 
+  name: Baseball_Bat
+  type: CA
+0x02: 
+  name: Golf_Club
+  type: CA
+0x03: 
+  name: Rowing_Machine
+  type: CA
+0x04: 
+  name: Treadmill
+  type: CA
+  
+0x30: 
+  name: Oar
+  type: DV
+0x31: 
+  name: Slope
+  type: DV
+0x32: 
+  name: Rate
+  type: DV
+0x33: 
+  name: Stick_Speed
+  type: DV
+0x34: 
+  name: Stick_Face_Angle
+  type: DV
+0x35: 
+  name: Stick_Heel/Toe
+  type: DV
+0x36: 
+  name: Stick_Follow_Through
+  type: DV
+0x37: 
+  name: Stick_Tempo
+  type: DV
+0x38: 
+  name: Stick_Type
+  type: NAry
+0x39: 
+  name: Stick_Height
+  type: DV
+  
+0x50: 
+  name: Putter
+  type: Sel
+0x51: 
+  name: 1_Iron
+  type: Sel
+0x52: 
+  name: 2_Iron
+  type: Sel
+0x53: 
+  name: 3_Iron
+  type: Sel
+0x54: 
+  name: 4_Iron
+  type: Sel
+0x55: 
+  name: 5_Iron
+  type: Sel
+0x56: 
+  name: 6_Iron
+  type: Sel
+0x57: 
+  name: 7_Iron
+  type: Sel
+0x58: 
+  name: 8_Iron
+  type: Sel
+0x59: 
+  name: 9_Iron
+  type: Sel
+0x5A: 
+  name: 10_Iron
+  type: Sel
+0x5B: 
+  name: 11_Iron
+  type: Sel
+0x5C: 
+  name: Sand_Wedge
+  type: Sel
+0x5D: 
+  name: Loft_Wedge
+  type: Sel
+0x5E: 
+  name: Power_Wedge
+  type: Sel
+0x5F: 
+  name: 1_Wood
+  type: Sel
+0x60: 
+  name: 3_Wood
+  type: Sel
+0x61: 
+  name: 5_Wood
+  type: Sel
+0x62: 
+  name: 7_Wood
+  type: Sel
+0x63: 
+  name: 9_Wood
+  type: Sel
