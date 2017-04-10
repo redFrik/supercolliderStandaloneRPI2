@@ -11,7 +11,7 @@ The standalone structure is loosely based on [Miguel Negrão's template](https:/
 installation
 --
 
-_(this assumes you have done all the usual initialization... burned the disk image, booted, changed password, enabled ssh)_
+_(this assumes you have done all the usual initialization... burned the disk image, booted, changed password, optionally enabled ssh)_
 
 open the terminal on the RPi and type...
 
@@ -30,7 +30,7 @@ To run the full IDE first open a terminal window and type...
 
 * `qjackctl`
 
-Select the correct soundcard (under setup/interfaces) and then start jackd. _(if usb soundcard is used set periods to 3)_
+Select the correct soundcard (under setup/interfaces) and then start jackd. _(if usb soundcard is used also set periods to 3)_
 
 Then open another terminal window and type...
 
@@ -75,7 +75,7 @@ The standalone also works under jessie-lite if the following additional steps ar
 
 installation:
 
-* `sudo apt-get install git libcwiid1 libasound2-dev libsamplerate0-dev libsndfile1-dev libreadline-dev xvfb`
+* `sudo apt-get install git libasound2-dev libsamplerate0-dev libsndfile1-dev libreadline-dev xvfb`
 * `git clone git://github.com/jackaudio/jack2.git --depth 1`
 * `cd jack2`
 * `./waf configure --alsa`
