@@ -87,7 +87,7 @@ installation:
 * `sudo nano /etc/security/limits.conf` #and add the following two lines at the end
   * `@audio - memlock 256000`
   * `@audio - rtprio 75`
-* `nano supercolliderStandaloneRPI2/autostart.sh` #and change the jackd path to `/usr/local/bin/jackd` _(after you did git clone above)_
+* `nano supercolliderStandaloneRPI2/autostart.sh` #and change the jackd path to `/usr/local/bin/jackd` _(after you git cloned this standalone above)_
 * `sudo reboot`
 
 startup:
