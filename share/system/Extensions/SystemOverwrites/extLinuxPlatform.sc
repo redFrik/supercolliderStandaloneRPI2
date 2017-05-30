@@ -6,7 +6,7 @@
 		// Server setup
 		Server.program = "exec ./scsynth";  //f0 edited
 		Server.default.options.ugenPluginsPath = "plugins:share";  //f0 added
-		Server.default.options.loadDefs = false;  //f0 added
+		"SC_SYNTHDEF_PATH".setenv(this.userAppSupportDir+/+"synthdefs");  //f0 added
 
 		// Score setup
 		Score.program = Server.program;
