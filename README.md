@@ -38,11 +38,10 @@ Then open another terminal window and type...
 * `export PATH=.:$PATH`
 * `scide`
 
-SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, help, quarks etc.
+or just double click the desktop icon. SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, help, quarks etc.
 
 KNOWN ISSUES and TODO:
 
-* help system and more is not working if scide is started via desktop icon - used to work
 * hints are yellow and unreadable - will be fixed in the next version (3.9)
 * 'libEGL warning: DRI2: failed to authenticate' that is posted in terminal at scide startup is harmless
 
