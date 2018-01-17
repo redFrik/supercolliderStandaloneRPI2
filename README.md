@@ -6,7 +6,7 @@ This is the audio synthesis program [SuperCollider](http://github.com/supercolli
 It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2017-11-29-raspbian-stretch](http://raspberrypi.org/downloads/raspbian/) (Raspbian Stretch with Desktop). It also works on the **Raspberry Pi 2**.
 For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
-The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled scsynth used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously as long as you start Sonic Pi first).
+The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled scsynth used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously as long as Sonic Pi is started first).
 
 installation
 --
@@ -46,6 +46,25 @@ KNOWN ISSUES:
 
 * 'libEGL warning: DRI2: failed to authenticate' that is posted in terminal at scide startup is harmless
 
+jack
+--
+
+If you start SuperCollider without having Jack already running (like when autostarting or running headless), Jack will automatically launch when you boot sc server. the audio settings then used are found in the file...
+
+* `nano ~/.jackdrc`
+
+_(this file is created by qjackctl so if you never ran qjackctl you might need to create this file manually.)_
+
+The recommended jack audio settings are...
+
+* `/usr/bin/jackd -P75 -dalsa -dhw:0 -p1024 -n3 -s -r44100`
+
+and to set up Jack to use an external usb sound card change `-dhw:0` to `-dhw:1` like this...
+
+* `/usr/bin/jackd -P75 -dalsa -dhw:1 -p1024 -n3 -s -r44100`
+
+NOTE: the internal soundcard volume is by default set low (40). type `alsamixer` in terminal and adjust the pcm volume to 85 with the arrow keys, esc key exits.
+
 autostart
 --
 
@@ -55,21 +74,6 @@ autostart
 * `sudo reboot` #and supercollider should automatically start after a while and play some beating sine tones.
 
 Then edit the autostart script to load whichever file. By default it will load `mycode.scd`.
-
-jack
---
-
-If you start SuperCollider without having Jack already running (like when autostarting or running headless), Jack will automatically launch when you boot sc server. the audio settings then used are found in the file...
-
-* `nano ~/.jackdrc`
-
-(this file is created by qjackd so if you never ran qjackd you might need to create this file manually.)
-
-To set up Jack to use an external usb sound card edit the file to look like this...
-
-* `/usr/bin/jackd -P75 -dalsa -dhw:1 -p1024 -n3 -s -r44100`
-
-NOTE: the internal soundcard volume is by default set low (40). type `alsamixer` in terminal and adjust the pcm volume to 85 with the arrow keys, esc key exits.
 
 headless
 --
