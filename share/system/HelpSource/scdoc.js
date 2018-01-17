@@ -8,70 +8,11 @@ function toggle_visibility(e) {
     }
 }
 
-/*
-function createCookie(name,value,days) {
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        var expires = "; expires="+date.toGMTString();
-    }
-    else var expires = "";
-    document.cookie = name+"="+value+expires+"; path=/";
-}
-
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-*/
-
 var storage;
 var sidetoc;
 var toc;
 var menubar;
 var allItems;
-function popOutTOC(original_toc, p0) {
-    var t = original_toc.cloneNode(true);
-    t.id = "sidetoc";
-    var c = document.getElementsByClassName("contents")[0];
-    var left = c.style.marginLeft;
-    c.style.marginLeft = "20.5em";
-    document.body.insertBefore(t,c);
-
-    t.getElementsByClassName("toc_search")[0].getElementsByTagName("input")[0].onkeyup = toc_search;
-
-    t.style.top = menubar.clientHeight;
-    t.style.maxHeight = "none";
-    t.style.display = "block";
-
-    var p = t.getElementsByClassName("popoutlink")[0];
-    p.innerHTML = "close";
-    p.onclick = function() {
-        t.parentNode.removeChild(t);
-        c.style.marginLeft = left;
-        p0.style.display = "";
-        sidetoc = null;
-        allItems = toc.getElementsByTagName("ul")[0].getElementsByTagName("li");
-        storage.popToc = "no";
-        return false;
-    }
-    var x = document.createElement("div");
-    x.id = "toctitle";
-    x.innerHTML = "Table of contents";
-    t.insertBefore(x,p.nextSibling);
-    p0.style.display = "none";
-
-    sidetoc = t;
-    allItems = t.getElementsByTagName("ul")[0].getElementsByTagName("li");
-    resize_handler();
-    storage.popToc = "yes";
-}
 
 function resize_handler() {
     var height = window.innerHeight - menubar.clientHeight - 20;
@@ -83,7 +24,7 @@ function resize_handler() {
 
 function addInheritedMethods() {
     if(! /\/Classes\/[^\/]+/.test(window.location.pathname)) return; // skip this if not a class doc
-    var doc = docmap["Classes/"+document.title];
+    var doc = docmap["Classes/" + scdoc_title];
     if(!doc) return;
     if(doc.implementor) {
         var sups = docmap["Classes/"+doc.implementor].superclasses;
@@ -500,21 +441,23 @@ function fixTOC() {
 // make header menu
     var bar = document.getElementById("menubar");
     menubar = bar;
-    var nav = ["Home","Browse","Search"];
+    var nav = ["SuperCollider " + scdoc_sc_version, "Browse", "Search"];
     var url = ["Help.html","Browse.html","Search.html"];
+    var nav_item;
+    var a;
     for(var i=0;i<nav.length;i++) {
-        var li = document.createElement("li");
-        li.className = "menuitem";
-        var a = document.createElement("a");
+        nav_item = document.createElement("div");
+        nav_item.className = "menuitem";
+        a = document.createElement("a");
         a.innerHTML = nav[i];
         a.setAttribute("href",helpRoot+"/"+url[i]);
-        a.className = "navLink";
-        li.appendChild(a);
-        bar.appendChild(li);
+        a.className = "navlink";
+        nav_item.appendChild(a);
+        bar.appendChild(nav_item);
     }
 
-    var li = document.createElement("li");
-    li.className = "menuitem";
+    nav_item = document.createElement("div");
+    nav_item.className = "menuitem";
     var a = document.createElement("a");
     a.innerHTML = "Indexes &#9660;";
     a.setAttribute("href","#");
@@ -532,66 +475,68 @@ function fixTOC() {
         b.innerHTML = nav[i];
         m1.appendChild(b);
     }
-    li.appendChild(a);
-    li.appendChild(m1);
-    bar.appendChild(li);
+    nav_item.appendChild(a);
+    nav_item.appendChild(m1);
+    bar.appendChild(nav_item);
 
-    var li = document.createElement("li");
-    li.className = "menuitem";
-    var x = document.createElement("span");
-    x.id = "topdoctitle";
-    x.appendChild(document.createTextNode(document.title));
-    x.onclick = function() {
-        scroll(0,0);
-        return false;
-    }
-    li.appendChild(x)
-    bar.appendChild(li);
-
-    var t = document.getElementById("toc");
-    toc = t;
-    if(t) {
-        var div = document.createElement("span");
-        div.className = "toc_search";
-        var ts = document.createElement("input");
-        ts.type = "text";
-        ts.id = "toc_search";
-        ts.value = "";
-        ts.style.border = "1px solid #ddd";
+    toc = document.getElementById("toc");
+    if (toc) {
         allItems = toc.getElementsByTagName("ul")[0].getElementsByTagName("li");
-        ts.onkeyup = toc_search;
-        div.appendChild(document.createTextNode("Filter:"));
-        div.appendChild(ts);
-        t.insertBefore(div,t.firstChild);
+        document.getElementById("toc_search").onkeyup = toc_search;
 
-        x.appendChild(document.createTextNode(" - "));
-        t.style.display = 'none';
+        toc.style.display = 'none';
 
-        var a = document.createElement("a");
-        a.setAttribute("href","#");
-        a.innerHTML = "Table of contents &#9660;";
-        li.appendChild(a);
-        a.onclick = function() {
-            ts.focus();
-            toggleMenu(t);
-            return false;
-        };
-        li.appendChild(t.parentNode.removeChild(t));
-        var p = document.createElement("a");
-        p.setAttribute("href","#");
-        p.className = "popoutlink";
-        p.innerHTML = "pop out";
-        p.onclick = function() {
-            if(!sidetoc)
-                popOutTOC(t,a);
+        nav_item = document.createElement("div");
+        nav_item.className = "menuitem";
+        var toc_link = document.createElement("a");
+        toc_link.setAttribute("href", "#");
+        toc_link.className = "navlink";
+        toc_link.innerHTML = "Table of contents";
+        toc_link.onclick = function() {
+            scroll(0,0);
             return false;
         }
-        t.insertBefore(p,t.firstChild);
+        nav_item.appendChild(toc_link);
+        bar.appendChild(nav_item);
+        toc_link.onclick = function() {
+            document.getElementById("toc_search").focus();
+            toggle_toc();
+            return false;
+        };
+
+        var close_link = document.createElement("a");
+        close_link.setAttribute("href","#");
+        close_link.className = "close-link";
+        close_link.innerHTML = "X";
+        close_link.addEventListener("click", function () {
+            toggle_toc();
+        }, false);
+        toc.insertBefore(close_link,toc.firstChild);
         resize_handler();
-        if(storage.popToc == "yes") {
-            popOutTOC(t,a);
+        if (storage.tocOpen === "yes") {
+            show_toc();
         }
     }
     window.onresize = resize_handler;
 }
 
+function show_toc() {
+    toc.style.display = "block";
+    document.querySelector(".contents").style.marginLeft = "20em";
+}
+
+function hide_toc() {
+    toc.style.display = "none";
+    document.querySelector(".contents").style.marginLeft = "0";
+}
+
+function toggle_toc() {
+    if (storage.tocOpen === "yes") {
+        hide_toc();
+        storage.tocOpen = "no";
+    } else {
+        show_toc();
+        storage.tocOpen = "yes";
+    }
+    resize_handler();
+}

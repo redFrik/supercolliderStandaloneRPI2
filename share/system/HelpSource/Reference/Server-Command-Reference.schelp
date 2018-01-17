@@ -26,12 +26,13 @@ definitionlist::
 subsection:: /notify
 Register to receive notifications from server
 table::
-## strong::int:: || one to receive notifications, zero to stop receiving them.
+## strong::int:: || 1 to receive notifications, 0 to stop receiving them.
+## strong::int:: || client ID (optional)
 ::
-If argument is one, server will remember your return address and send you notifications. if argument is zero, server will stop sending you notifications.
+If the first argument is 1, server will remember your return address and send you notifications; if 0, server will stop sending notifications.
 
 definitionlist::
-## Asynchronous. || Replies to sender with strong::/done /notify clientID:: when complete. If this client has registered for notifications before, this may be the same ID. Otherwise it will be a new one. Clients can use this ID in multi-client situations to avoid conflicts in node IDs, bus indices, buffer numbers, etc.
+## Asynchronous. || Replies to sender with strong::/done /notify clientID [maxLogins]:: when complete. If this client has registered for notifications before, this may be the same ID. Otherwise it will be a new one. Clients can use this ID in multi-client situations to avoid conflicts when allocating resources such as node IDs, bus indices, and buffer numbers. strong::maxLogins:: is only returned when the client ID argument is supplied in this command. strong::maxLogins:: is not supported by supernova.
 ::
 
 subsection:: /status
@@ -114,6 +115,24 @@ If you use ['/error', -1] within a self-bundling method, you should always close
 However, even if this is not done, the next bundle or message received will begin with the standard error posting status, as set by modes 0 or 1.
 
 Temporary error suppression may not affect asynchronous commands in every case.
+
+subsection:: /version
+
+Query the SuperCollider version. Replies to sender with the following message:
+definitionlist::
+## /version.reply || table::
+## string || Program name. May be "scsynth" or "supernova".
+## int || Major version number. Equivalent to sclang's code::Main.scVersionMajor::.
+## int || Minor version number. Equivalent to sclang's code::Main.scVersionMinor::.
+## string || Patch version name. Equivalent to sclang's code::Main.scVersionPostfix::.
+## string || Git branch name.
+## string || First seven hex digits of the commit hash.
+::
+::
+
+The standard human-readable version string can be constructed by concatenating code:: major_version ++ "." ++ minor_version ++ patch_version ::. Since version information is easily accessible to sclang users via the methods described above, this command is mostly useful for alternate clients.
+
+The git branch name and commit hash could be anything if the user has forked SC, so they should only be used for display and user interface purposes.
 
 section:: Synth Definition Commands
 
@@ -709,7 +728,9 @@ table::
 ## strong::string:: || command name
 ## strong::...:: || command arguments
 ::
-Plug-ins can define commands that operate on buffers. The arguments after the command name are defined by the command. The currently defined buffer fill commands are listed below in a separate section.
+Plug-ins can define commands that operate on buffers. The arguments after the command name are defined by the command. The currently defined link::Reference/Server-Command-Reference#Buffer Fill Commands#buffer fill commands:: are listed below in a separate section.
+
+code::/b_gen:: does not accept a completion message as the final argument.
 definitionlist::
 ## Asynchronous. || Replies to sender with strong::/done /b_gen bufNum:: when complete.
 ::
@@ -719,6 +740,7 @@ subsection:: /b_close
 Close soundfile.
 table::
 ## strong::int:: || buffer number
+## strong::bytes:: || an OSC message to execute upon completion. (optional)
 ::
 After using a buffer with link::Classes/DiskOut::, close the soundfile and write header information.
 definitionlist::
@@ -1092,7 +1114,11 @@ enum {
     cmd_n_mapan = 61,
     cmd_n_order = 62,
 
-    NUMBER_OF_COMMANDS = 63
+    cmd_p_new = 63,
+
+    cmd_version = 64,
+
+    NUMBER_OF_COMMANDS = 65
 };
 ::
 

@@ -1,17 +1,17 @@
 # supercolliderStandaloneRPI2
 Standalone for Raspberry Pi 2 or 3 with Raspbian Jessie including the full IDE.
 
-This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (3.8.0, commit 0947edd, 5nov2016) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (master, commit f1200cd, 8nov2016) compiled for rpi2 and rpi3.
+This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (3.9.0, commit 8567e7e, 16jan2018) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (master, commit aa606ed, 5nov2017) compiled for rpi2 and rpi3.
 
-It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2016-09-23-raspbian-jessie](http://raspberrypi.org/downloads/raspbian/) (Raspbian Jessie with Pixel). It also works on the **Raspberry Pi 2**.
+It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2017-11-29-raspbian-stretch](http://raspberrypi.org/downloads/raspbian/) (Raspbian Stretch with Desktop). It also works on the **Raspberry Pi 2**.
 For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
-The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled 3.6.6 version of SuperCollider used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously).
+The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled scsynth used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously).
 
 installation
 --
 
-_(this assumes you have done all the usual initialization... burned the disk image, booted, changed password, optionally enabled ssh)_
+_(this assumes you have done all the usual initialisation... burned the disk image, booted, changed password, optionally enabled ssh)_
 
 open the terminal on the RPi and type...
 
@@ -42,7 +42,6 @@ or just double click the desktop icon. SuperCollider IDE should start and run li
 
 KNOWN ISSUES and TODO:
 
-* hints are yellow and unreadable - will be fixed in the next version (3.9)
 * 'libEGL warning: DRI2: failed to authenticate' that is posted in terminal at scide startup is harmless
 
 autostart

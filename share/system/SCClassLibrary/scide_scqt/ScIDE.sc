@@ -12,9 +12,9 @@ ScIDE {
 		Class.initClassTree(Server);
 
 		StartUp.add {
-			if (ScIDE.connected) {
+			if (this.connected) {
 				this.handshake
-			};
+			}
 		}
 	}
 
@@ -36,12 +36,27 @@ ScIDE {
 		serverController.remove;
 		serverController = SimpleController(server)
 		.put(\serverRunning, { | server, what, extraArg |
-			this.send(\defaultServerRunningChanged, [
-				server.serverRunning, server.addr.hostname, server.addr.port, server.unresponsive]);
+			// Needs to be deferred so Server GUI can update if running.
+			defer {
+				this.send(\defaultServerRunningChanged, [
+					server.serverRunning, server.addr.hostname, server.addr.port, server.unresponsive]);
+			}
 		})
 		.put(\default, { | server, what, newServer |
 			("changed default server to:" + newServer.name).postln;
 			this.defaultServer = newServer;
+		})
+		.put(\dumpOSC, { | server, what, code |
+			this.send( if(code.asBoolean, \dumpOSCStarted, \dumpOSCStopped) );
+		})
+		.put(\recording, { | theChanger, what, flag |
+			this.send( if(flag.asBoolean, \recordingStarted, \recordingStopped) );
+		})
+		.put(\pausedRecording, { | theChanger, what |
+			this.send(\recordingPaused);
+		})
+		.put(\recordingDuration, { | theChanger, what, duration |
+			this.send(\recordingDuration, duration.asString);
 		})
 		.put(\dumpOSC, { | volume, what, code |
 			this.send( if(code.asBoolean, \dumpOSCStarted, \dumpOSCStopped) );
@@ -78,6 +93,7 @@ ScIDE {
 
 	*connected {
 		_ScIDE_Connected
+		^this.primitiveFailed
 	}
 
 
@@ -416,7 +432,6 @@ ScIDE {
 	}
 
 
-
 	// PRIVATE ///////////////////////////////////////////////////////////
 
 	*prSend {|id, data|
@@ -615,7 +630,7 @@ Document {
 
 	close { ScIDE.close(quuid); }
 
-/*	// asynchronous get
+	/*	// asynchronous get
 	// range -1 means to the end of the Document
 	getText {|action, start = 0, range -1|
 		var funcID;
@@ -807,7 +822,7 @@ Document {
 
 	string { | rangestart, rangesize = 1 |
 		if(rangestart.isNil,{
-		^this.text;
+			^this.text;
 		});
 		^this.rangeText(rangestart, rangesize);
 	}

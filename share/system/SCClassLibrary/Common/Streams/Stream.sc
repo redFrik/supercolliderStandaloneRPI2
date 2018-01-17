@@ -268,7 +268,7 @@ FuncStream : Stream {
 		^super.new.nextFunc_(nextFunc).resetFunc_(resetFunc).envir_(currentEnvironment)
 	}
 	next { arg inval;
-		^envir.use({ nextFunc.value(inval).processRest(inval) })
+		^envir.use({ nextFunc.value(inval) })
 	}
 	reset {
 		^envir.use({ resetFunc.value })
@@ -300,7 +300,7 @@ StreamClutch : Stream {
 		reset = true
 	}
 	step { arg inval;
-		value = stream.next(inval ? Event.default)
+		value = stream.next(inval ?? { Event.default })
 	}
 
 }
@@ -359,8 +359,12 @@ PauseStream : Stream {
 	}
 	reset { originalStream.reset }
 	stop {
+		var saveStream = this.stream;
 		this.prStop;
-		this.changed(\userStopped);
+ 		this.changed(\userStopped);
+		if(saveStream === thisThread) {
+			nil.alwaysYield
+		}
 	}
 	prStop {
 		stream = nil;
@@ -435,7 +439,7 @@ EventStreamPlayer : PauseStream {
 	var <>event, <>muteCount = 0, <>cleanup, <>routine;
 
 	*new { arg stream, event;
-		^super.new(stream).event_(event ? Event.default).init;
+		^super.new(stream).event_(event ?? { Event.default }).init;
 	}
 
 	init {
