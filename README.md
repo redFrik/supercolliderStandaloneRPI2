@@ -1,9 +1,9 @@
 # supercolliderStandaloneRPI2
 Standalone for Raspberry Pi 2 or 3 with Raspbian Stretch including the full IDE.
 
-This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (3.9.1, commit f15598c, 9feb2018) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (master, commit 9307b41, 2feb2018) compiled for rpi2 and rpi3.
+This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (3.9.2, commit 6aba4ce, 3apr2018) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (master, commit 9307b41, 2feb2018) compiled for rpi2 and rpi3.
 
-It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2017-11-29-raspbian-stretch](http://raspberrypi.org/downloads/raspbian/) (Raspbian Stretch with Desktop). It also works on the **Raspberry Pi 2**.
+It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2018-03-13-raspbian-stretch](http://raspberrypi.org/downloads/raspbian/) (Raspbian Stretch with Desktop). It also works on the **Raspberry Pi 2**.
 For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
 The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled scsynth used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously as long as Sonic Pi is started first).
