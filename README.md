@@ -83,9 +83,9 @@ To run sclang+scsynth only from ssh...
 
 * `export DISPLAY=:0.0`
 * `cd supercolliderStandaloneRPI2`
-* `./sclang -a -l sclang.yaml`
+* `./sclang -a -l ~/supercolliderStandaloneRPI2/sclang.yaml`
 
-NOTE: one can also specify a .scd file to load when starting sclang like this: `./sclang -a -l sclang.yaml mycode.scd`
+NOTE: one can also specify a .scd file to load when starting sclang like this: `./sclang -a -l ~/supercolliderStandaloneRPI2/sclang.yaml mycode.scd`
 
 - - -
 
@@ -115,4 +115,4 @@ installation:
 startup:
 
 * `cd supercolliderStandaloneRPI2`
-* `xvfb-run --auto-servernum ./sclang -a -l sclang.yaml`
+* `xvfb-run --auto-servernum ./sclang -a -l ~/supercolliderStandaloneRPI2/sclang.yaml`
