@@ -18,6 +18,7 @@ open the terminal on the RPi and type...
 * `sudo apt-get update`
 * `sudo apt-get upgrade`
 * `sudo apt-get dist-upgrade`
+* `sudo apt-get update`
 * `sudo apt-get install libqt5webkit5 libqt5sensors5 libqt5positioning5 libfftw3-bin libcwiid1`
 * `git clone https://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `mkdir -p ~/.config/SuperCollider`
