@@ -1,4 +1,5 @@
 + LinuxPlatform {
+	startupFiles {^super.startupFiles}
 	startup {
 
 		helpDir = this.systemAppSupportDir++"/Help";

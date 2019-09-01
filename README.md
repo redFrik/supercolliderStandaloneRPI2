@@ -1,12 +1,15 @@
 # supercolliderStandaloneRPI2
-Standalone for Raspberry Pi 2 or 3 with Raspbian Stretch including the full IDE.
+Standalone for Raspberry Pi 2 or 3 with Raspbian including the full IDE.
 
-This is the audio synthesis program [SuperCollider](http://github.com/supercollider/supercollider) (3.9.3, commit f61c21d, 6apr2018) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (master, commit 9307b41, 2feb2018) compiled for rpi2 and rpi3.
+This is the audio synthesis program [SuperCollider](https://github.com/supercollider/supercollider) version 3.10.3 (branch 3.10, commit 39ed52c, 30aug2019) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (branch 3.10, commit 6d69ae9, 5mar2019) compiled for **Raspberry Pi 2** and **Raspberry Pi 3** (and likely **Raspberry Pi 4** but this is untested).
 
-It was built using [this guide](http://supercollider.github.io/development/building-raspberrypi.html) on a **Raspberry Pi 3** under [2018-03-13-raspbian-stretch](http://raspberrypi.org/downloads/raspbian/) (Raspbian Stretch with Desktop). It also works on the **Raspberry Pi 2**.
 For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
-The standalone structure is loosely based on [Miguel Negrão's template](https://github.com/miguel-negrao/scStandalone). This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with the Raspbian bundled scsynth used by Sonic Pi (i.e. no need to uninstall Sonic Pi and the two programs can even run simultaneously as long as Sonic Pi is started first).
+The standalone was built using [this guide](https://supercollider.github.io/development/building-raspberrypi.html) and tested to run under [Raspbian Buster with desktop](https://raspberrypi.org/downloads/raspbian/) (2019-07-10-raspbian-buster), Raspbian Buster Lite and under Raspbian Stretch (2019-04-08-raspbian-stretch).
+
+Note since SuperCollider version 3.10 the ScIDE needs to be built without qt-webengine (`-DSC_USE_QTWEBENGINE:BOOL=OFF`) and that means that the **built-in help system is not available** for this standalone. You can browse help files at [doc.sccode.org](http://doc.sccode.org) until this is resolved.
+
+This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with other programs using scsynth like Sonic Pi and can even run simultaneously (as long as Sonic Pi is started first).
 
 installation
 --
@@ -18,8 +21,7 @@ open the terminal on the RPi and type...
 * `sudo apt-get update`
 * `sudo apt-get upgrade`
 * `sudo apt-get dist-upgrade`
-* `sudo apt-get update`
-* `sudo apt-get install libqt5webkit5 libqt5sensors5 libqt5positioning5 libfftw3-bin libcwiid1`
+* `sudo apt-get install qjackctl libqt5quick5 libqt5opengl5`
 * `git clone https://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `mkdir -p ~/.config/SuperCollider`
 * `cp supercolliderStandaloneRPI2/sc_ide_conf_temp.yaml ~/.config/SuperCollider/sc_ide_conf.yaml`
@@ -41,16 +43,19 @@ Then open another terminal window and type...
 * `export PATH=.:$PATH`
 * `scide`
 
-or just double click the desktop icon. SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, help, quarks etc.
+or simply just double click the desktop icon. SuperCollider IDE should start and run like normal - with scope, meter, plot, gui, animation, quarks etc.
+
+The startupfile is located in the subdirectory `share/user/` and extensions you can put in `share/user/Extensions/` (first create that directory if it does not exist).
 
 KNOWN ISSUES:
 
 * 'libEGL warning: DRI2: failed to authenticate' that is posted in terminal at scide startup is harmless
+* 'Open startup file' and 'Open user support directory' menu selections do not open the right file/folder.
 
 jack
 --
 
-If you start SuperCollider without having Jack already running (like when autostarting or running headless), Jack will automatically launch when you boot sc server. The audio settings then used are found in the file...
+If you start SuperCollider without having Jack already running (like when autostarting or running headless), Jack will automatically launch when you boot the server. The audio settings then used are found in the file...
 
 * `nano ~/.jackdrc`
 
@@ -89,14 +94,17 @@ NOTE: one can also specify a .scd file to load when starting sclang like this: `
 
 - - -
 
-stretch-lite
+raspbian-lite
 ==
 
-The standalone also works under Raspbian Stretch-lite if the following additional steps are taken...
+The standalone also works under Raspbian Lite but the installation process is a little bit different...
 
 installation:
 
-* `sudo apt-get install git libasound2-dev libsamplerate0-dev libsndfile1-dev libreadline-dev xvfb`
+* `sudo apt-get update`
+* `sudo apt-get upgrade`
+* `sudo apt-get dist-upgrade`
+* `sudo apt-get install libqt5quick5 libqt5opengl5 libqt5printsupport5 libqt5sql5 git libasound2-dev libsamplerate0-dev libsndfile1-dev libreadline-dev xvfb`
 * `git clone git://github.com/jackaudio/jack2.git --depth 1`
 * `cd jack2`
 * `./waf configure --alsa`

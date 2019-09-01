@@ -1,6 +1,6 @@
 class:: NodeProxy
 summary:: a reference on a server
-categories:: Libraries>JITLib>NodeProxy, Live Coding
+categories:: JITLib>NodeProxy, Live Coding
 related:: Classes/ProxySpace
 
 description::
@@ -404,7 +404,7 @@ set the crossfade time. See: link::Tutorials/JITLib/jitlib_fading:: .
 
 subsection::Setting synth controls
 
-method::set, map, setn, mapn
+method::set, map, setn
 NodeProxy behaves like its link::Classes/NodeMap:: and very similar to a link::Classes/Synth::.
 
 note::Now the methods map, setn, mapn, and xmap are there just for backward compatibility reasons. Everything is done by set.::
@@ -431,8 +431,6 @@ definitionList::
 ## array of numbers || set the subsequent control channels to the corresponding value
 ## node proxy || map subsequent control channels to the corresponding proxy output channel
 ::
-
-
 
 method::unset, unmap
 Remove specified settings and unmap or unset the synths.
@@ -711,7 +709,7 @@ code::
 a = NodeProxy.audio(s,2);
 a.play;
 
-a.clock = TempoClock(2.0).permanent_(true); // round to every 2.0 seconds
+a.quant = 2.0; // quantize changes to the next 2.0-beat multiple
 a.source = { Ringz.ar(Impulse.ar(0.5, 0, 0.3), 3000, 0.01) };
 a[1] = { Ringz.ar(Impulse.ar([0.5, 1], 0, 0.3), 1000, 0.01) };
 a[2] = { Ringz.ar(Impulse.ar([3, 5]/2, 0, 0.3), 8000, 0.01) };

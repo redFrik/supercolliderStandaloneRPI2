@@ -1,10 +1,12 @@
 [Desktop Entry]
 Name=SuperCollider IDE
 GenericName=SuperCollider IDE
+Comment=a platform for audio synthesis and algorithmic composition
 Path=/home/pi/supercolliderStandaloneRPI2/
 Exec=/home/pi/supercolliderStandaloneRPI2/run.sh
 Icon=/home/pi/supercolliderStandaloneRPI2/share/system/sc_ide_32.png
 Type=Application
+Encoding=UTF-8
 Terminal=false
-Categories=Application;Development;
 StartupNotify=false
+Categories=Application;Development;

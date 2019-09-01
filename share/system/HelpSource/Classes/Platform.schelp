@@ -74,14 +74,11 @@ platform recordings directory
 method:: defaultTempDir
 default directory for temporary files
 
-method:: formatPathForCmdLine
+method:: hasQt
+true if the Qt library is available, false otherwise
 
-argument:: path
-A path string.
-
-returns:: The input string formatted as a command-line argument. On Windows this
-method quotes the string. On Unix-based systems this method escapes space
-characters with a backslash.
+method:: hasQtWebEngine
+true if the QtWebEngine library is available, false otherwise
 
 subsection:: Features
 
@@ -100,7 +97,6 @@ returns the platform name
 
 method:: recompile
 recompile class library
-
 
 subsection:: Directories and filesystem stuff
 
@@ -134,6 +130,9 @@ platform specific directory for class files (see link::Guides/UsingExtensions::)
 method:: pathSeparator
 platform specific path separator
 
+method:: pathDelimiter
+platform specific path delimiter
+
 method:: recordingsDir
 platform recordings directory
 
@@ -143,7 +142,14 @@ platform specific resource directory
 method:: defaultTempDir
 default directory for temporary files
 
+method:: formatPathForCmdLine
 
+argument:: path
+A path string.
+
+returns:: The input string formatted as a command-line argument. On Windows this
+method quotes the string. On Unix-based systems this method escapes space
+characters with a backslash.
 
 subsection:: Startup files
 

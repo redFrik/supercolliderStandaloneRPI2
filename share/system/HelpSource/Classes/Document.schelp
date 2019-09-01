@@ -97,7 +97,7 @@ argument:: action
 An instance of link::Classes/Function:: or link::Classes/FunctionList::.
 
 method:: autoRun
-If a document begins with the link::Classes/String::, code::"/*RUN*/"::, then the code following it int he file will be executed on opening the file, if autorun is set to true.
+If a document begins with the comment, code::/*RUN*/::, then the code following it in the file will be executed on opening the file, if autorun is set to true.
 argument:: value
 An instance of link::Classes/Boolean::. Default value is code::true::.
 
@@ -264,13 +264,13 @@ method:: mouseDownAction
 Get/set the action to be performed on link::Classes/Document#mouseDown::.
 
 argument:: action
-An instance of link::Classes/Function:: or link::Classes/FunctionList::. The arguments passed to the function are: code::document::, code::x::, code::y::, code::modifiers::, code::buttonNumber::, code::clickCount::, code::clickPos::.
+An instance of link::Classes/Function:: or link::Classes/FunctionList::. The arguments passed to the function are: code::document::, code::x::, code::y::, code::modifiers::, code::buttonNumber::, code::clickCount::.
 
 
 method:: mouseUpAction
 Get/set the action to be performed on link::Classes/Document#mouseUp::.
 argument:: action
-An instance of link::Classes/Function:: or link::Classes/FunctionList::. The arguments passed to the function are: code::document::, code::x::, code::y::, code::modifiers::, code::buttonNumber::, code::clickCount::, code::clickPos::.
+An instance of link::Classes/Function:: or link::Classes/FunctionList::. The arguments passed to the function are: code::document::, code::x::, code::y::, code::modifiers::, code::buttonNumber::.
 discussion::
 code::
 (

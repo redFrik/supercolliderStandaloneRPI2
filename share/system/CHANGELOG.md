@@ -1,5 +1,359 @@
 # Change Log
 
+Release dates of 3.x versions:
+
+- 3.1: 2007-10-31
+- 3.2: 2008-02-19
+- 3.3: 2009-04-30
+- 3.4: 2010-07-15
+- 3.5: 2012-03-16
+- 3.6: 2012-11-28
+- 3.7: 2016-03-13
+- 3.8: 2016-11-04
+- 3.9: 2018-01-13
+- 3.10: 2018-11-24
+
+3.10.3 (2019-08-30)
+===================
+
+General: Fixed
+-----
+
+For people compiling with musl libc, some build errors have been fixed ([#4535](https://github.com/supercollider/supercollider/pull/4535)).
+
+scsynth and supernova: Changed
+-------
+
+**Breaking change:** scsynth had a security issue where it listens to 0.0.0.0 by default. For most users, this is undesirable behavior since it allows anyone on your local network to send messages to scsynth! This default has been changed to 127.0.0.1 ([#4516](https://github.com/supercollider/supercollider/pull/4516)). To change it back (e.g. for networked server/client setups), use `-B 0.0.0.0` at the command line or `server.options.bindAddress = "0.0.0.0"`.
+
+scsynth and supernova: Fixed
+-----
+
+On Windows, scsynth was not able to select separate input and output devices. Since many audio drivers present inputs and outputs as separate devices, this caused major blocking issues for anyone using Windows with an external sound card. This has been fixed ([#4475](https://github.com/supercollider/supercollider/pull/4475)).
+
+Fixed a supernova compilation issue on Boost 1.67 ([#4447](https://github.com/supercollider/supercollider/pull/4447)).
+
+Fixed server hangs happening in plugins employing SequencedCmd ([#4456](https://github.com/supercollider/supercollider/pull/4456)).
+
+UGens: Fixed
+-----
+
+Fixed an initialization issue for the `trig` input to `Convolution2` ([#4341](https://github.com/supercollider/supercollider/pull/4341)).
+
+sclang: Added
+-----
+
+sclang and the IDE can now be compiled without QtWebEngine -- just set `SC_USE_QTWEBENGINE=OFF` at the `cmake` stage ([#4328](https://github.com/supercollider/supercollider/pull/4328)).
+
+sclang: Fixed
+-----
+
+The `mouseWheelAction` of `View` erroneously reported `xDelta` and `yDelta` to be 0 in some cases. This is fixed ([#4423](https://github.com/supercollider/supercollider/pull/4423)).
+
+Fixed incorrect mathematics in `SimpleNumber:series` ([#4454](https://github.com/supercollider/supercollider/pull/4454)).
+
+Fixed a harmless but annoying warning in when running `HelpBrowser.instance` in sclang without the IDE ([#4488](https://github.com/supercollider/supercollider/pull/4488)).
+
+Class library: Added
+-----
+
+The `-B` command-line flag to scsynth was missing a frontend in `ServerOptions`. This has been fixed by introducing `ServerOptions:bindAddress` ([#4516](https://github.com/supercollider/supercollider/pull/4516)).
+
+Add `Platform.hasQtWebEngine` to query whether sclang was compiled with QtWebEngine support ([#4523](https://github.com/supercollider/supercollider/pull/4523)).
+
+Class library: Fixed
+-----
+
+Fix issues when using a regular `Buffer` (that is, not a `LocalBuf`) for FFT ([#4050](https://github.com/supercollider/supercollider/pull/4050)).
+
+Lots of small issues in `Plotter` were fixed, especially related to the `domain` and `domainSpec` arguments ([4082](https://github.com/supercollider/supercollider/pull/4082)).
+
+When changing the source of an input to a `NodeProxy`, discontinuities can happen even when smooth crossfading is requested. This has been fixed ([#4296](https://github.com/supercollider/supercollider/pull/4296)).
+
+`ProxyMixer` no longer assumes the `ProxySpace` it is using to be the current environment ([#4339](https://github.com/supercollider/supercollider/pull/4339)).
+
+The default recordings directory on Windows was the somewhat redundant `My Documents\SuperCollider\SuperCollider\Recordings`. The additional `SuperCollider` subdirectory has been removed ([#4420](https://github.com/supercollider/supercollider/pull/4420)).
+
+In Events where `strum` is set, the releases of notes was erroneously done in reverse order. This is fixed ([#4406](https://github.com/supercollider/supercollider/pull/4406)).
+
+Fix `EnvirGui` always creating a `SkipJack` due to incorrect logic concerning the `makeSkip` flag ([#4376](https://github.com/supercollider/supercollider/pull/4376)).
+
+`SkipJack` would not remove itself properly when stopped by its stopTest. This is fixed ([#4376](https://github.com/supercollider/supercollider/pull/4376)).
+
+Fixed class library compilation issues on Qt-less sclang installations ([#4219](https://github.com/supercollider/supercollider/pull/4219)).
+
+IDE & SCDoc: Fixed
+-----
+
+Fixed crashes trying to run multiple IDEs at once, and a related error when attempting to run `HelpBrowser:instance` in sclang while an IDE help browser is open ([#4267](https://github.com/supercollider/supercollider/pull/4267)).
+
+On macOS, Cmd+Q in the IDE would quit the interpeter but not the IDE. This is a regression from old behavior where the IDE was quit entirely. This has been fixed ([#4300](https://github.com/supercollider/supercollider/issues/4300)).
+
+Since 3.10, the help browser would execute code twice when selected. This has been fixed ([#4390](https://github.com/supercollider/supercollider/pull/4390)).
+
+Fix footnotes adding unwanted line breaks in SCDoc ([#4365](https://github.com/supercollider/supercollider/pull/4365)).
+
+
+3.10.2 (2019-02-08)
+===================
+
+Due to immature development status and lack of cross-platform compatibility, **MainMenu is no longer created by default** ([#4285](https://github.com/supercollider/supercollider/pull/4285)). It can be re-enabled by running `MainMenu.initBuiltInMenus` (add this to your startup file to permanently re-enable). The API for MainMenu is subject to change in the future.
+
+MainMenu consumes less resources and no longer causes a gradual memory leak ([#3870](https://github.com/supercollider/supercollider/pull/3870)).
+
+Fix SCIDE missing an icon on some Linux desktop environments ([#4269](https://github.com/supercollider/supercollider/pull/4269)).
+
+Fixed incorrect parsing of strings containing `\"` and single-quote symbols containing `\'` in class library files ([#4255](https://github.com/supercollider/supercollider/pull/4255)).
+
+Fixed language-side issues when using FFT UGens on a regular Buffer rather than a LocalBuf ([#4050](https://github.com/supercollider/supercollider/pull/4050)).
+
+Added `TempoClock:isRunning` method ([#4254](https://github.com/supercollider/supercollider/pull/4254)).
+
+Fixed some compiler warnings ([#4275](https://github.com/supercollider/supercollider/pull/4275), [#4274](https://github.com/supercollider/supercollider/pull/4274)).
+
+3.10.1 (2019-01-17)
+===================
+
+Fixed an infinite hang in `SerialPort.devices` affecting macOS ([#4180](https://github.com/supercollider/supercollider/pull/4180)).
+
+Fixed `ServerOptions` producing eight channels instead of two channels when explicitly setting `numOutputBusChannels` or `numInputBusChannels` ([#4251](https://github.com/supercollider/supercollider/pull/4251)).
+
+Fixed a build issue on OpenBSD ([#4203](https://github.com/supercollider/supercollider/pull/4203)).
+
+Fixed `/b_fill`, which was broken in supernova ([#4188](https://github.com/supercollider/supercollider/pull/4188)).
+
+Fixed incorrect latency compensation in PortAudio driver ([#4210](https://github.com/supercollider/supercollider/pull/4210)).
+
+The `CheckBadValues` UGen incorrectly recognized zero as a bad value on Windows. This has been fixed ([#4240](https://github.com/supercollider/supercollider/pull/4240)).
+
+Fixed `crtscts` flag in `SerialPort.new`, which broke in 3.10 ([#4191](https://github.com/supercollider/supercollider/issues/4191)).
+
+Fixed lack of `backgroundImage` support for `Slider2D` ([#3952](https://github.com/supercollider/supercollider/pull/3952)).
+
+Fixed incorrect behavior of `String:asSecs` ([#3819](https://github.com/supercollider/supercollider/pull/3819)).
+
+`0X0` is an illegal hexadecimal literal in sclang, but SCIDE and SCDoc highlighted such strings as if they were correct. They have been updated ([#4170](https://github.com/supercollider/supercollider/pull/4170)).
+
+Fixed weird colors in SCIDE when changing from other themes to the "classic" theme ([#4161](https://github.com/supercollider/supercollider/pull/4161)).
+
+3.10.0 (2018-11-24)
+=========================
+
+Contributors to this release: adcxyz, bagong, brianlheim, dkmayer, dmorgan-github, dyfer, g-roma,
+geoffroymontel, gusano, hardiksingh-rathore, htor, jamshark70, jpburstrom, LFSaw, lnihlen, lvm,
+markwheeler, mhetrick, miczac, muellmusik, nilninull, novadeviator, orbsmiv, patrickdupuis, paum3,
+prko, redFrik, sbl, scztt, sensestage, shimpe, simonvanderveldt, smiarx, smrg-lm, snappizz,
+sonoro1234, telephon, tem44, widp, Xon77, and many others.
+
+Known issues
+------------
+
+- FileDialog can hang — currently we are only able to reproduce on KDE, but other OS's could be affected ([#3807](https://github.com/supercollider/supercollider/issues/3807)).
+- On Windows and Linux, running code with Ctrl+Enter in the help browser (not the editor) only evaluates the current line ([#3989](https://github.com/supercollider/supercollider/issues/3989)).
+- QtWebEngine, a hard dependency of SCLang and SCIDE, is difficult or impossible to install in some environments ([#4010](https://github.com/supercollider/supercollider/issues/4010)). Work is underway to make it an optional component, but this will not happen in time for 3.10.
+
+General: Added
+-----
+
+A `NO_X11` option has been added to the build system so that server plugins requiring an X server such as MouseX can be omitted ([#3738](https://github.com/supercollider/supercollider/pull/3738)).
+
+General: Changed
+-------
+
+sclang and scide have long been stuck with Qt 5.5 due to Qt dropping QtWebKit for QtWebEngine. They have been upgraded for compatibility with Qt 5.7+. We recommend using the most recent version of Qt. The impacts of this change include:
+
+- sclang and scide now build on Visual Studio 2015 and later. (Previously, Windows users had to obtain the now-ancient Visual Studio 2013.)
+- UserView now supports Retina/HiDPI display.
+- A somewhat different build process on Linux. See the README.
+
+The minimum required version is now CMake 3.5 instead of CMake 2.8 ([#3656](https://github.com/supercollider/supercollider/pull/3656)).
+
+scel (the emacs package) is now a submodule ([#3519](https://github.com/supercollider/supercollider/pull/3519)).
+
+General: Fixed
+-----
+
+Many issues with Unicode paths on Windows were fixed in 3.9. A few remaining cases involving sound files remained, and are now fixed ([#3720](https://github.com/supercollider/supercollider/pull/3720)):
+
+- supernova's sound file backend, buffer manager, and plugin loading
+- NRT mode in scsynth
+- `/b_read` family of commands in scsynth
+- `SoundFileView` in the sclang GUI
+
+Fixed a build failure with the CMake option `SYSTEM_YAMLCPP=on` ([#3558](https://github.com/supercollider/supercollider/pull/3558)).
+
+Fixed a misleading deprecation warning when `CMAKE_INSTALL_PREFIX` is set to the home directory in Linux ([#3613](https://github.com/supercollider/supercollider/pull/3613)).
+
+Fixed `CMAKE_PREFIX_PATH` incorrectly defaulting to `/usr/local/` on macOS under some conditions ([#4043](https://github.com/supercollider/supercollider/pull/4043)).
+
+scsynth and supernova: Added
+-----
+
+supernova now has latency compensation ([#3790](https://github.com/supercollider/supercollider/pull/3790)).
+
+scsynth and supernova: Fixed
+-----
+
+scsynth's latency compensation had a math error that ended up doubling the latency. It is fixed now ([#3790](https://github.com/supercollider/supercollider/pull/3790)).
+
+For consistency with scsynth, supernova no longer requires the final argument to `/b_allocReadChannel` ([#3826](https://github.com/supercollider/supercollider/pull/3826)).
+
+Fixed a missing newline in some of supernova's error messages ([#3897](https://github.com/supercollider/supercollider/pull/3897)).
+
+Fixed errors in supernova's `/s_getn` ([#3893](https://github.com/supercollider/supercollider/pull/3893)).
+
+Fix supernova's response to `/g_queryTree` so it matches scsynth ([#3221](https://github.com/supercollider/supercollider/pull/3221)).
+
+UGens: Fixed
+-----
+
+Fixed clicks in Convolution2L ([#3687](https://github.com/supercollider/supercollider/pull/3687)).
+
+sclang: Added
+-----
+
+Menus are now supported in the Qt GUI. See help files for `Menu`, `MenuAction`, `ToolBar`, and `MainMenu` ([#2504](https://github.com/supercollider/supercollider/pull/2504)).
+
+Added wrappers for over 100 special mathematical functions (gamma function, Bessel functions, elliptic integrals, etc.) from the Boost library ([#3672](https://github.com/supercollider/supercollider/pull/3672)).
+
+SerialPort now works on Windows ([#3809](https://github.com/supercollider/supercollider/pull/3809)).
+
+`FileDialog` and `Dialog` now support a "path" argument that specifies a default directory when the dialog appears ([#3508](https://github.com/supercollider/supercollider/pull/3508)).
+
+`QTreeView` has a new method: `setColumnWidth` ([#3560](https://github.com/supercollider/supercollider/pull/3560)).
+
+sclang: Changed
+-------
+
+**Breaking change:** `Float:asString` now always produces a decimal point, so `3.0.asString` is now `"3.0"` instead of `"3"` ([#3585](https://github.com/supercollider/supercollider/pull/3585)).
+
+**Breaking change:** The `server` argument has changed to `target` in `Function:asBuffer`, `Function:loadToFloatArray`, and `Function:plot`, and now allows spawning the plotting synth relative to a group or node rather than just a server ([#3088](https://github.com/supercollider/supercollider/pull/3088)).
+
+**Breaking change:** `File:mkdir` now returns a Boolean indicating whether the operation was successful. Previously, it returned the File object ([#3635](https://github.com/supercollider/supercollider/issues/3635)).
+
+Scrollbars now always appear for ScrollView on Linux an Windows, as a temporary workaround for a very odd dependency on the use of the scroll wheel ([#3686](https://github.com/supercollider/supercollider/pull/3686)).
+
+sclang: Removed
+-------
+
+Removed some unused Qt dependencies from the build system ([#3472](https://github.com/supercollider/supercollider/pull/3472)).
+
+sclang: Fixed
+-----
+
+**Breaking change:** Fixed a long-standing math error in `SimpleNumber:expexp` ([#3786](https://github.com/supercollider/supercollider/pull/3786)).
+
+Fixed extreme CPU usage of sclang when built without Qt ([#3772](https://github.com/supercollider/supercollider/pull/3772)).
+
+On Windows, the directory where extensions were installed was accidentally changed in 3.9. It has been reverted ([#3751](https://github.com/supercollider/supercollider/pull/3751)).
+
+Fixed a crash when calling `File.copy` when the destination exists ([#3633](https://github.com/supercollider/supercollider/pull/3633)).
+
+Fixed two `Array:lace` issues: a crash when any element is an empty array, and an error when no length argument is provided and any element is not an array ([#3716](https://github.com/supercollider/supercollider/issues/3716)).
+
+Fixed conditions where `Integer:forBy` can cause sclang to freeze when the step size is 0 or a floating point value with an absolute value less than 1 ([#3804](https://github.com/supercollider/supercollider/pull/3804)).
+
+Fixed some incorrect output in `FunctionDef:dumpByteCodes` ([#3803](https://github.com/supercollider/supercollider/pull/3803)).
+
+Fixed `Node:release` getting stuck on negative release times, which are now equivalent to 0 ([#3741](https://github.com/supercollider/supercollider/pull/3741)).
+
+Fixed `==` on `Signal` objects randomly returning the wrong result ([#3970](https://github.com/supercollider/supercollider/pull/3970)).
+
+Class library: Added
+-----
+
+`UnitTest.passVerbosity` allows changing the verbosity of test failure reports. See the `UnitTest` help file for more information ([#3615](https://github.com/supercollider/supercollider/pull/3615)).
+
+Added new UGen methods `.snap` and `.softRound` ([#3429](https://github.com/supercollider/supercollider/pull/3429/files)).
+
+`Node:query` has a new `action` argument, allowing specification of a callback function ([#3701](https://github.com/supercollider/supercollider/pull/3701)).
+
+`.degrad` and `.raddeg` are now implemented for UGens ([#3821](https://github.com/supercollider/supercollider/pull/3821)).
+
+Class library: Changed
+-------
+
+The default behavior of `SerialPort.devices` pattern matching has been improved to match a wider variety of devices on macOS and Linux ([#3809](https://github.com/supercollider/supercollider/pull/3809)).
+
+Internal calls to `.interpret` have been removed from `Color.fromHexString` and `History.unformatTime`, improving both performance and security ([#3527](https://github.com/supercollider/supercollider/pull/3527)).
+
+Class library: Deprecated
+----------
+
+`SerialPort.cleanupAll` is deprecated ([#3809](https://github.com/supercollider/supercollider/pull/3809)).
+
+Providing an integer index for `SerialPort.new` is deprecated ([#3809](https://github.com/supercollider/supercollider/pull/3809)).
+
+Class library: Fixed
+-----
+
+`BufWr.ar` no longer allows its input signals to be control rate, which caused the server to read from garbage memory ([#3749](https://github.com/supercollider/supercollider/pull/3749)).
+
+`Buffer:query` returned incorrect results if multiple query messages are sent at once. This has been fixed ([#3645](https://github.com/supercollider/supercollider/pull/3645)).
+
+Fixed fragilities in path joining methods such as `+/+`, `withTrailingSlash`, and `withoutTrailingSlash` ([#3634](https://github.com/supercollider/supercollider/pull/3634)).
+
+Fixed bugs when certain pattern classes are passed in 0 as the number of repeats ([#3603](https://github.com/supercollider/supercollider/pull/3603)).
+
+Fixed `Event.addEventType` ignoring the `parentEvent` argument ([#3736](https://github.com/supercollider/supercollider/pull/3736)).
+
+Fixed `Pkey` being skipped because the default number of repeats is `nil` instead of `inf` ([#3724](https://github.com/supercollider/supercollider/pull/3724)).
+
+Fixed some harmless but annoying errors about extensions of nonexistent classes when sclang is built without Qt ([#3770](https://github.com/supercollider/supercollider/pull/3770)).
+
+`ProxySpace:linkDoc` was broken — switching documents did not actually change ProxySpaces. This is fixed now ([#3764](https://github.com/supercollider/supercollider/pull/3764)).
+
+`Recorder:prepareForRecord` produced an error if the recordings path does not exist. It now makes the directory if it doesn't exist ([#3788](https://github.com/supercollider/supercollider/pull/3788)).
+
+Fixed bugs when providing multiple paths in `ServerOptions:ugensPluginPath` ([#3754](https://github.com/supercollider/supercollider/pull/3754)).
+
+Fixed `HelpBrowser` (the class, not the IDE help browser) being unusable since it didn't trigger rendering of help files when links are clicked ([#3832](https://github.com/supercollider/supercollider/pull/3832)).
+
+Fixed some bugs in `EnvGate`: throwing an error when `fadeTime` is a constant rather than a UGen input, and `i_level` not behaving as documented ([#3797](https://github.com/supercollider/supercollider/pull/3797)).
+
+Fixed occasional hangs when rebooting supernova ([#3848](https://github.com/supercollider/supercollider/pull/3848)).
+
+Fixed confusing user feedback with the "Check for updates" button in the quarks GUI ([#3986](https://github.com/supercollider/supercollider/pull/3986)).
+
+`Buffer` methods ensure that the buffer number in outbound OSC messages is an integer ([#3907](https://github.com/supercollider/supercollider/pull/3907)). This fixes errors in supernova, which is stricter than scsynth about the buffer number type.
+
+Fixed confusing user feedback with the "Check for updates" button in the quarks GUI ([#3986](https://github.com/supercollider/supercollider/pull/3986)).
+
+Fixed missing default arguments in `fold2`, `wrap2`, and `excess` methods of `Collection` for consistency with `SimpleNumber` ([#4037](https://github.com/supercollider/supercollider/pull/4037)).
+
+Fixed incorrect template matching behavior in `OSCFunc` and related functionality ([#4027](https://github.com/supercollider/supercollider/pull/4027)).
+
+Fixed "Message 'extension' not understood" preventing `Image` from working ([#3728](https://github.com/supercollider/supercollider/pull/3949)).
+
+IDE & SCDoc: Added
+-----
+
+The IDE has a prettier default theme ([#4025](https://github.com/supercollider/supercollider/pull/4025)). The old theme still exists as "classic."
+
+The IDE now properly highlights scale degree literals like `4s` ([#4032](https://github.com/supercollider/supercollider/pull/4032)).
+
+IDE & SCDoc: Changed
+-------
+
+The IDE has a prettier default theme ([#4025](https://github.com/supercollider/supercollider/pull/4025)). The old theme still exists as "classic."
+
+The IDE now has a unified look across all platforms, and its color scheme adapts to match the editor theme ([#3950](https://github.com/supercollider/supercollider/pull/3950)).
+
+The SCDoc TOC and menubar have been redesigned again ([#3831](https://github.com/supercollider/supercollider/pull/3831)).
+
+Various tweaks to the appearance of the IDE: nicer tabs ([#3992](https://github.com/supercollider/supercollider/pull/3992)), better border colors ([#4022](https://github.com/supercollider/supercollider/pull/4022)).
+
+IDE & SCDoc: Fixed
+-----
+
+When starting the IDE, detached docklet sometimes spawn as unresponsive. This has been fixed ([#3660](https://github.com/supercollider/supercollider/pull/3660)).
+
+Syntax colors in the help browser now match the IDE ([#3883](https://github.com/supercollider/supercollider/pull/3883)).
+
+Only one preference window can be open at a time now ([#3988](https://github.com/supercollider/supercollider/pull/3988)).
+
+Fixed tabs reversing in order when restoring a session ([#3942](https://github.com/supercollider/supercollider/pull/3942)).
+
 3.9.3 (2018-04-07)
 ==================
 

@@ -27,7 +27,7 @@ Event : Environment {
 
 	*addEventType { arg type, func, parentEvent;
 		partialEvents.playerEvent.eventTypes.put(type, func);
-		this.addParentType(parentEvent)
+		this.addParentType(type, parentEvent)
 	}
 
 	*addParentType { arg type, parentEvent;
@@ -564,8 +564,10 @@ Event : Environment {
 								);
 							}
 						} {
-
-							if (strum < 0) { bndl = bndl.reverse };
+							if (strum < 0) {
+								bndl = bndl.reverse;
+								ids = ids.reverse
+							};
 							strumOffset = offset + Array.series(bndl.size, 0, strum.abs);
 							~schedBundleArray.(
 								lag, strumOffset, server, bndl, ~latency

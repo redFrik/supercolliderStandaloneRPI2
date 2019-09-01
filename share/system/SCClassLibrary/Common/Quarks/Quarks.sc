@@ -24,6 +24,10 @@ Quarks {
 				("Quarks-install: path does not exist" + path).error;
 				^nil
 			});
+			if(File.type(path) != \directory, {
+				("Quarks-install: path is not a directory" + path).error;
+				^nil
+			});
 			quark = Quark.fromLocalPath(path);
 			this.installQuark(quark);
 			^quark
@@ -66,7 +70,7 @@ Quarks {
 			^("Quark set file does not exist:" + path).error;
 		});
 		this.clear();
-		Routine.run({
+		forkIfNeeded({
 			file = File.open(path, "r");
 			while({
 				line = file.getLine();
@@ -334,16 +338,17 @@ Quarks {
 			});
 		});
 	}
-	*checkForUpdates { |done|
-		Routine.run({
+	*checkForUpdates { |done, quarkAction|
+		forkIfNeeded({
 			this.all.do { arg quark;
 				if(quark.isGit, {
+					quarkAction.value(quark);
 					quark.checkForUpdates();
 				});
 				0.05.wait;
 			};
 			done.value();
-		});
+		}, AppClock);
 	}
 	*prReadDirectoryFile { |dirTxtPath|
 		var file;

@@ -483,7 +483,7 @@ The first frame of the soundfile to read. The default is 0, which is the beginni
 argument:: numFrames
 The number of frames to read. The default is -1, which will read the whole file.
 argument:: channels
-An Array of channels to be read from the soundfile. Indices start from zero. These will be read in the order provided.
+An Array of channels to be read from the soundfile. Indices start from zero. These will be read in the order provided. If absent or an empty array all channels will be read from soundfile in order.
 argument:: completionMessage
 A valid OSC message or a Function which will return one. A Function will be passed this Buffer as an argument when evaluated.
 discussion::
@@ -699,7 +699,7 @@ b.get(0, {|msg| msg.postln});
 b.free;
 ::
 
-method:: getn, getMsg
+method:: getn, getnMsg
 Send a message requesting the a contiguous range of values of size count starting from index. action is a Function which will be passed the values in an Array as an argument and evaluated when a reply is received. See setn above for an example.
 discussion::
 N.B. The maximum number of values that you can get with a single getn message is 1633 when the server is using UDP as its communication protocol. Use link::#-loadToFloatArray:: and link::#-getToFloatArray:: to get larger ranges of values.
@@ -718,7 +718,7 @@ code::
 s.boot;
 b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
 // same as Buffer.plot
-b.loadToFloatArray(action: { arg array; a = array; {a.plot;}.defer; "done".postln;});
+b.loadToFloatArray(action: { arg array; a = array; { a.plot }.defer; "done".postln });
 b.free;
 ::
 
@@ -740,7 +740,7 @@ code::
 s.boot;
 b = Buffer.read(s, Platform.resourceDir +/+ "sounds/a11wlk01.wav");
 // like Buffer.plot
-b.getToFloatArray(wait:0.01,action:{arg array; a = array; {a.plot;}.defer;"done".postln;});
+b.getToFloatArray(wait:0.01,action:{arg array; a = array; { a.plot }.defer; "done".postln });
 b.free;
 ::
 
@@ -833,7 +833,8 @@ x.free; b.free;
 
 method:: query
 Sends a b_query message to the server, asking for a description of this buffer. The results are posted to the post window. Does not update instance vars.
-
+argument:: action
+An optional Function to be called which takes the arguments code::msgType, bufnum, numFrames, numChannels, sampleRate::. Providing a function here will bypass code::query::'s normal behaviour, i.e., the usual buffer information will not be posted.
 method:: updateInfo
 Sends a b_query message to the server, asking for a description of this buffer. Upon reply this Buffer's instance variables are automatically updated.
 argument:: action
@@ -926,7 +927,7 @@ method:: cheby, chebyMsg
 Fill this buffer with a series of Chebyshev polynomials, which can be defined as: code::cheby(n) = amplitude  * cos(n * acos(x))::. To eliminate a DC offset when used as a waveshaper, the wavetable is offset so that the center value is zero.
 
 Similar functionality can be found in link::Classes/Signal#*chebyFill#Signal.chebyFill:: and link::Classes/Wavetable#*chebyFill#Wavetable.chebyFill::.  If you require Chebyshev polynomials that do not include the offset compensation, it is recommended to use one of these.
-argument:: amplitudes
+argument:: amps
 An Array containing amplitudes for the harmonics. The first float value specifies the amplitude for n = 1, the second float value specifies the amplitude for n = 2, and so on.
 argument:: normalize
 A Boolean indicating whether or not to normalize the buffer to a peak value of 1.0. The default is true.
@@ -952,4 +953,3 @@ x = {
 )
 x.free; b.free;
 ::
-
