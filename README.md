@@ -1,5 +1,5 @@
 # supercolliderStandaloneRPI2
-Standalone for Raspberry Pi 2 or 3 with Raspbian including the full IDE.
+Standalone for Raspberry Pi 2, 3, 4 with Raspbian including the full IDE
 
 This is the audio synthesis program [SuperCollider](https://github.com/supercollider/supercollider) version 3.10.3 (branch 3.10, commit 39ed52c, 30aug2019) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (branch 3.10, commit 6d69ae9, 5mar2019) compiled for **Raspberry Pi 2** and **Raspberry Pi 3** (and likely **Raspberry Pi 4** but this is untested).
 
@@ -76,7 +76,7 @@ autostart
 
 * `sudo apt-get install xvfb`
 * `crontab -e` #and add the following line to the end
-* `@reboot cd /home/pi/supercolliderStandaloneRPI2 && xvfb-run ./autostart.sh`
+  * `@reboot cd /home/pi/supercolliderStandaloneRPI2 && xvfb-run ./autostart.sh`
 * `sudo reboot` #and supercollider should automatically start after a while and play some beating sine tones.
 
 Then edit the autostart script to load whichever file. By default it will load `mycode.scd`.
@@ -118,6 +118,7 @@ installation:
   * `@audio - rtprio 75`
 * `nano ~/.jackdrc` #and add the following (use `-dhw:1` for usb soundcard)
   * `/usr/local/bin/jackd -P75 -dalsa -dhw:0 -r44100 -p1024 -n3`
+* `cd ~; git clone https://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `sudo reboot`
 
 startup:
