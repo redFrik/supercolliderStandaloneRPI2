@@ -1,11 +1,11 @@
 # supercolliderStandaloneRPI2
 Standalone for Raspberry Pi 2, 3, 4 with Raspbian including the full IDE
 
-This is the audio synthesis program [SuperCollider](https://github.com/supercollider/supercollider) version 3.10.3 (branch 3.10, commit 39ed52c, 30aug2019) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (branch 3.10, commit 6d69ae9, 5mar2019) compiled for **Raspberry Pi 2** and **Raspberry Pi 3** (and likely **Raspberry Pi 4** but this is untested).
+This is the audio synthesis program [SuperCollider](https://github.com/supercollider/supercollider) version 3.10.4 (branch 3.10, commit 6b1e9f4, 16jan2020) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (branch 3.10, commit 6d69ae9, 5mar2019) compiled for **Raspberry Pi 2** and **Raspberry Pi 3** (and likely **Raspberry Pi 4** but this is untested).
 
 For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
-The standalone was built using [this guide](https://supercollider.github.io/development/building-raspberrypi.html) and tested to run under [Raspbian Buster with desktop](https://raspberrypi.org/downloads/raspbian/) (2019-07-10-raspbian-buster), Raspbian Buster Lite and under Raspbian Stretch (2019-04-08-raspbian-stretch).
+The standalone was built using [this guide](https://supercollider.github.io/development/building-raspberrypi.html) and tested to run under [Raspbian Buster with desktop](https://raspberrypi.org/downloads/raspbian/) (2019-09-26-raspbian-buster), Raspbian Buster Lite and under Raspbian Stretch (2019-04-08-raspbian-stretch).
 
 Note since SuperCollider version 3.10 the ScIDE needs to be built without qt-webengine (`-DSC_USE_QTWEBENGINE:BOOL=OFF`) and that means that the **built-in help system is not available** for this standalone. You can browse help files at [doc.sccode.org](http://doc.sccode.org) until this is resolved.
 
@@ -113,11 +113,9 @@ installation:
 * `sudo ldconfig`
 * `cd ..`
 * `rm -rf jack2`
-* `sudo nano /etc/security/limits.conf` #and add the following two lines at the end
-  * `@audio - memlock 256000`
-  * `@audio - rtprio 75`
-* `nano ~/.jackdrc` #and add the following (use `-dhw:1` for usb soundcard)
-  * `/usr/local/bin/jackd -P75 -dalsa -dhw:0 -r44100 -p1024 -n3`
+* `sudo sh -c "echo @audio - memlock 256000 >> /etc/security/limits.conf"`
+* `sudo sh -c "echo @audio - rtprio 75 >> /etc/security/limits.conf"`
+* `echo /usr/local/bin/jackd -P75 -p16 -dalsa -dhw:0 -r44100 -p1024 -n3 > ~/.jackdrc` #use -dhw:1 for usb soundcard
 * `cd ~; git clone https://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `sudo reboot`
 
