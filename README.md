@@ -7,6 +7,8 @@ For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://g
 
 The standalone was built using [this guide](https://supercollider.github.io/development/building-raspberrypi.html) and tested to run under [Raspbian Buster with desktop](https://raspberrypi.org/downloads/raspbian/) (2019-09-26-raspbian-buster), Raspbian Buster Lite and under Raspbian Stretch (2019-04-08-raspbian-stretch).
 
+A quick (4:33) screencast showing the installation in realtime can be seen here... https://vimeo.com/397466041
+
 Note since SuperCollider version 3.10 the ScIDE needs to be built without qt-webengine (`-DSC_USE_QTWEBENGINE:BOOL=OFF`) and that means that the **built-in help system is not available** for this standalone. You can browse help files at [doc.sccode.org](http://doc.sccode.org) until this is resolved.
 
 This standalone is self-contained and all files are in one directory (except for the sc_ide_conf.yaml file - see below). It can coexist with other programs using scsynth like Sonic Pi and can even run simultaneously (as long as Sonic Pi is started first).
