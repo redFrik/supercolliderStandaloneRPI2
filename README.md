@@ -1,7 +1,7 @@
 # supercolliderStandaloneRPI2
 Standalone for Raspberry Pi 2, 3, 4 including the full IDE
 
-This is the audio synthesis program [SuperCollider](https://github.com/supercollider/supercollider) version 3.11.1 (branch 3.11, commit 6b1e9f4, 16jan2020) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (branch master, commit f3d5635, 24jul2020) compiled for **Raspberry Pi 2** and **Raspberry Pi 3** (and likely **Raspberry Pi 4** but this is untested).
+This is the audio synthesis program [SuperCollider](https://github.com/supercollider/supercollider) version 3.11.1 (branch 3.11, commit 97911fa, 21aug2020) + [sc3-plugins](https://github.com/supercollider/sc3-plugins) (branch master, commit f3d5635, 24jul2020) compiled for **Raspberry Pi 2** and **Raspberry Pi 3** (and likely **Raspberry Pi 4** but this is untested).
 
 For **Raspberry Pi 1** and **Raspberry Pi Zero** use [this repository](https://github.com/redFrik/supercolliderStandaloneRPI1).
 
