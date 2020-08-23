@@ -63,10 +63,6 @@ String[char] : RawArray {
 		^this.primitiveFailed
 	}
 
-	*scDir {
-		^Platform.resourceDir
-	}
-
 	compare { arg aString, ignoreCase=false;
 		_StringCompare
 		this.primitiveFailed;
@@ -88,6 +84,7 @@ String[char] : RawArray {
 		^this.compare(aString, false) >= 0
 	}
 	== { arg aString;
+		if (this === aString) { ^true };
 		if(aString.isString.not) { ^false };
 		^this.compare(aString, false) == 0
 	}
@@ -433,10 +430,14 @@ String[char] : RawArray {
 	}
 	splitext {
 		this.reverseDo({ arg char, i;
+			// Return early after the first path separator
+			if (Platform.isPathSeparator(char), {^[this, nil]});
+
 			if (char == $\., {
 				^[this.copyFromStart(this.size - 2 - i), this.copyToEnd(this.size - i)]
 			});
 		});
+
 		^[this, nil]
 	}
 
@@ -549,4 +550,11 @@ String[char] : RawArray {
 		^this.primitiveFailed
 	}
 
+	parseJSON {
+		^this.parseYAML
+	}
+
+	parseJSONFile {
+		^this.parseYAMLFile
+	}
 }
