@@ -106,6 +106,7 @@ installation:
 * `sudo apt-get upgrade`
 * `sudo apt-get dist-upgrade`
 * `sudo apt-get install libqt5quick5 libqt5opengl5 libqt5printsupport5 libqt5sql5 git libasound2-dev libsamplerate0-dev libsndfile1-dev libreadline-dev`
+* `sudo apt remove '*jack*'`
 * `git clone git://github.com/jackaudio/jack2.git --depth 1`
 * `cd jack2`
 * `./waf configure --alsa`
