@@ -8,6 +8,7 @@ sc3-plugins are built and installed like this...
 ```
 git clone --recursive https://github.com/supercollider/sc3-plugins.git
 cd sc3-plugins
+git checkout main
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE="Release" -DSUPERNOVA=OFF -DNATIVE=ON -DSC_PATH=../../supercollider/ ..
 make -j3
