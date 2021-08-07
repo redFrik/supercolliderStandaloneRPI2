@@ -21,8 +21,6 @@ _(this assumes you have done all the usual initialisation... burned the disk ima
 open the terminal on the RPi and type...
 
 * `sudo apt-get update`
-* `sudo apt-get upgrade`
-* `sudo apt-get dist-upgrade`
 * `sudo apt-get install qjackctl libqt5quick5 libqt5opengl5`
 * `git clone https://github.com/redFrik/supercolliderStandaloneRPI2 --depth 1`
 * `mkdir -p ~/.config/SuperCollider`
