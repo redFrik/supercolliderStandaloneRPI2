@@ -45,7 +45,7 @@ My own additional notes for this git repository...
 * note which system image was used in README.md
 * copy the files over to laptop...
   * `cd supercolliderStandaloneRPI2`
-  * `scp pi@raspberrypi.local:supercolliderStandaloneRPI2/sc* .`
+  * `scp pi@raspberrypi.local:supercolliderStandaloneRPI2/sc\* .`
   * `rm -rf plugins`
   * `scp -r pi@raspberrypi.local:supercolliderStandaloneRPI2/plugins .`
   * `rm -rf share`
