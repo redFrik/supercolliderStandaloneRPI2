@@ -30,7 +30,14 @@ open the terminal on the RPi and type...
 * `mkdir -p ~/.config/SuperCollider`
 * `cp supercolliderStandaloneRPI2/sc_ide_conf_temp.yaml ~/.config/SuperCollider/sc_ide_conf.yaml`
 
-NOTE: the last command will create a global sc_ide preference file from a template. At the moment SuperCollider IDE can not use a local configuration file, but hopefully, this will change in the future. Also, note that if you cloned or moved this repository somewhere else than in your home directory you should edit the yaml file with `nano ~/.config/SuperCollider/sc_ide_conf.yaml` to make the paths in there point to your standalone directory.
+**NOTE:** Double check the name in the last `cp` command. The resulting file must be called `sc_ide_conf.yaml`
+
+This last `cp` command will create a global sc_ide preference file from a template. At the moment SuperCollider IDE can not use a local configuration file, but hopefully, this will change in the future. Also, note that if you cloned or moved this repository somewhere else than in your home directory you should edit the yaml file to make the paths in there point to your standalone directory.
+
+**IMPORTANT:** If you have set another user name than `pi`, edit the two files `SuperColliderIDE.desktop` and `sc_ide_conf.yaml` to match your username.
+
+* `nano ~/supercolliderStandaloneRPI2/SuperColliderIDE.desktop`
+* `nano ~/.config/SuperCollider/sc_ide_conf.yaml`
 
 startup
 --
